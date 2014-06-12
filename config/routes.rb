@@ -3,6 +3,12 @@ Prismbox::Application.routes.draw do
   resources :users
   resources :orders
 
+  controller :sessions do
+    get 'login', to: :new
+    post 'login', to: :create 
+    delete 'logout', to: :destroy
+  end
+
   get "catalog/index"
   root "catalog#welcome", as: "welcome"
   # The priority is based upon order of creation: first created -> highest priority.
