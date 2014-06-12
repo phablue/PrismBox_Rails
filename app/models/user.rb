@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   has_secure_password
   before_destroy :ensure_an_admin_remains
-  has_many :orders
 
   def admin?
     self.email == admin_email
