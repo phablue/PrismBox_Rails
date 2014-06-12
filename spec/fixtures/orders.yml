@@ -1,0 +1,9 @@
+one:
+  name: John
+  email: john@example.com
+  laptop_number: macair1234
+
+two:
+  name: Lisa
+  email: lisa@example.com
+  laptop_number: macpro5678

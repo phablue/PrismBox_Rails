@@ -1,0 +1,29 @@
+<div class="container">
+  <% if notice %>
+      <p class = "alert alert-success"><%= notice %></p> 
+  <% end %>
+  <div class="page-header">
+    <h1>LAPTOP (# <%= @laptop.serial_number%>)</h1>
+  </div>
+  <div class="detail-laptop">
+    <br><label class="col-sm-2">SERIAL NUMBER</label>
+    <div class="col-sm-5"><%= @laptop.serial_number %></div><br>
+    <label class="col-sm-2">MODEL</label>
+    <div class="col-sm-5"><%= @laptop.model_ %></div><br>
+    <label class="col-sm-2">HDD SIZE</label>
+    <div class="col-sm-5"><%= @laptop.hdd_size %></div><br>
+    <label class="col-sm-2">CPU SPEED</label>
+    <div class="col-sm-5"><%= @laptop.cpu_speed %></div><br>
+    <label class="col-sm-2">RAM</label>
+    <div class="col-sm-5"><%= @laptop.ram %></div><br>
+    <label class="col-sm-2">SCREEN SIZE</label>
+    <div class="col-sm-5"><%= @laptop.screen_size %></div><br>
+    <label class="col-sm-2">PURCHASED DATE</label>
+    <div class="col-sm-5"><%= @laptop.purchased_date %></div><br>
+    <label class="col-sm-2">CURRENT STATE</label>
+    <div class="col-sm-5"><%= @laptop.state %></div><br>
+  </div><br>
+  <div class="back">
+  <%= link_to "Back", laptops_url , class: "btn btn-primary"%>
+  </div>
+</div>

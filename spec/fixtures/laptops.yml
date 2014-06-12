@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  serial_number: "1234"
+  model_: MacPro
+  hdd_size: 50GB
+  cpu_speed: Fast
+  ram: Big
+  screen_size: 55"
+  purchased_date: 05/05/2014
+  state: Lended
+
+two:
+  serial_number: "5678"
+  model_: MacAir
+  hdd_size: 100GB
+  cpu_speed: Fast
+  ram: Small
+  screen_size: 50"
+  purchased_date: 01/01/2001
+  state: Stocked

@@ -1,0 +1,42 @@
+<div class="new_account">
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div class = "alert alert-danger">
+        <h2>
+          <%= pluralize(@user.errors.count, "error") %> 
+          prohibited this laptop from being saved:
+        </h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li> <% end %>
+        </ul>
+      </div> 
+    <% end %>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">NAME</label>
+      <div class="col-sm-4">
+        <%= f.text_field :name, class: "form-control", placeholder: "NAME" %>
+      </div><br>
+      <label class="col-sm-3 control-label">EMAIL</label>
+      <div class="col-sm-4">
+        <%= f.email_field :email, class: "form-control", placeholder:"EMAIL" %>
+      </div><br>
+      <label class="col-sm-3 control-label">PASSWORD</label>
+      <div class="col-sm-4">
+        <%= f.password_field :password, class: "form-control", placeholder:"PASSWORD" %>
+      </div><br>
+      <label class="col-sm-3 control-label">PASSWORD CONFIRMATION</label>
+      <div class="col-sm-4">
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder:"PASSWORD" %>
+      </div><br>
+      <label class="col-sm-3 control-label">DEPARTMENT</label>
+      <div class="col-sm-4">
+        <p>
+          <b>Software </b> <%= f.radio_button :department, 'Software', checked: true %>
+          &nbsp&nbsp&nbsp
+          <b>UX </b><%= f.radio_button :department, 'UX' %></p>
+      </div><br>
+    </div>
+    <%= f.submit "Make Account", class: "btn btn-success" %>
+  <% end %>
+</div>

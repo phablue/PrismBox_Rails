@@ -1,0 +1,15 @@
+one:
+  name: John
+  email: john@example.com
+  password_digest: password1
+  department: Software
+  current_borrowed_laptop:
+  current_borrowed_date:
+
+two:
+  name: Mary
+  email: mary@example.com
+  password_digest: password2
+  department: Design
+  current_borrowed_laptop: MacPro
+  current_borrowed_date: 2014-10-10

@@ -1,0 +1,29 @@
+<%= form_for @order do |f| %>
+  <% if @order.errors.any? %>
+    <div class = "alert alert-danger">
+      <h2>
+        <%= pluralize(@order.errors.count, "error") %>
+        prohibited this order from being saved:
+      </h2>
+      <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li> <% end %>
+      </ul>
+    </div> 
+  <% end %>  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-5">
+      <%= f.text_field :name, @user.name, class: "form-control", disabled: true %>
+    </div><br>
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-5">
+      <%= f.text_field :email, @user.email, class: "form-control", disabled: true %>
+    </div><br>
+    <label class="col-sm-2 control-label">RENT LAPTOP SERIAL NUMBER</label>
+    <div class="col-sm-5">
+      <%= f.text_field :laptop_number, @laptop.serial_serial_number, class: "form-control", disabled: true %>
+    </div><br>
+  </div>
+  <%= f.submit "Save Laptop", class: "btn btn-success" %>
+<% end %>

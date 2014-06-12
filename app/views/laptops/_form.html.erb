@@ -1,0 +1,45 @@
+<%= form_for @laptop do |f| %>
+  <% if @laptop.errors.any? %>
+    <div class = "alert alert-danger">
+      <h2>
+        <%= pluralize(@laptop.errors.count, "error") %>
+        prohibited this laptop from being saved:
+      </h2>
+      <ul>
+        <% @laptop.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li> <% end %>
+      </ul>
+    </div> 
+  <% end %>  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">SERIAL NUMBER</label>
+    <div class="col-sm-5">
+      <%= f.text_field :serial_number, class: "form-control", placeholder: "SERIAL NUMBER" %>
+    </div><br>
+    <label class="col-sm-2 control-label">MODEL</label>
+    <div class="col-sm-5">
+      <%= f.text_field :model_, class: "form-control", placeholder:"MODEL" %>
+    </div><br>
+    <label class="col-sm-2 control-label">HDD SIZE</label>
+    <div class="col-sm-5">
+      <%= f.text_field :hdd_size, class: "form-control", placeholder:"HDD SIZE" %>
+    </div><br>
+    <label class="col-sm-2 control-label">CPU SPEED</label>
+    <div class="col-sm-5">
+      <%= f.text_field :cpu_speed, class: "form-control", placeholder:"CPU SPEED" %>
+    </div><br>
+    <label class="col-sm-2 control-label">RAM</label>
+    <div class="col-sm-5">
+      <%= f.text_field :ram, class: "form-control", placeholder:"RAM" %>
+    </div><br>
+    <label class="col-sm-2 control-label">SCREEN SIZE</label>
+    <div class="col-sm-5">
+      <%= f.text_field :screen_size, class: "form-control", placeholder:"RAM" %>
+    </div><br>
+    <label class="col-sm-2 control-label">PURCHASED DATE</label>
+    <div class="col-sm-5">
+      <%= f.date_field :purchased_date, class: "form-control" %>
+    </div><br>
+  </div>
+  <%= f.submit "Save Laptop", class: "btn btn-success" %>
+<% end %>
