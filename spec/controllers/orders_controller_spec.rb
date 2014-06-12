@@ -28,4 +28,31 @@ describe OrdersController do
       flash[:notice].should include "Successfully ordered"
     end
   end
+
+  describe "POST 'update'" do
+    before(:each) do
+      orders(:one).name.should eq "John"
+      post :update, id: orders(:one).id, order: {name: "Mike"}
+      orders(:one).reload
+    end
+
+    it "Redirect to order" do
+      response.should redirect_to assigns(:order)
+    end
+
+    it "Flash notice message is 'Order was successfully updated.' when Redirect to" do
+      flash[:notice].should include "Order was successfully updated."
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    it "Delete Order(:one)" do
+      expect {delete :destroy, id: orders(:one).id}.to change(Order,:count).by(-1)
+    end
+
+    it "Redirect to user" do
+      delete :destroy, id: orders(:one).id
+      response.should redirect_to ('/')
+    end
+  end
 end

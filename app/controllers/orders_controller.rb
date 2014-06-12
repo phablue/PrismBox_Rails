@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :get_order, only:[:show, :destroy]
+  before_action :get_order, only:[:show, :edit, :update, :destroy]
 
   def index
     @order = Order.all
