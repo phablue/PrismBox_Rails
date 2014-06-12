@@ -53,6 +53,10 @@ describe LaptopsController do
   end
 
   describe "DELETE 'destroy'" do
+    it "Delete laptop(:one)" do
+      expect {delete :destroy, id: laptops(:one).id}.to change(Laptop,:count).by(-1)
+    end
+
     it "Responds redirect to laptops_url" do
       delete :destroy, id: laptops(:one).id
       response.should redirect_to laptops_url
