@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_authorize
-    if User.find_by_email(session[:admin_id]).admin
+    if User.find_by_email(session[:user_id]).admin
       redirect_to '/', notice: "Sorry. This is a wrong access"
     end
   end
