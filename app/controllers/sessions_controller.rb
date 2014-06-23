@@ -7,8 +7,13 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user and user.authenticate(params[:password])
-      session[:user_id] = user.email
-      redirect_to '/'
+      if user.admin
+        session[:admin_id] = user.email
+        redirect_to admin_url
+      else
+        session[:user_id] = user.email
+        redirect_to '/'
+      end
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
