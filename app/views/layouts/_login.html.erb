@@ -1,0 +1,10 @@
+<%= form_tag login_url, class: "navbar-form navbar-right" do %>
+  <div class="form-group">
+    <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= password_field_tag :password, params[:password], placeholder: "password", class: "form-control" %>
+  </div>
+  <%= submit_tag "Sign in", class: "btn btn-primary" %>
+<% end %>
+<h5 class="make_account navbar-right">New to PrismBox? <%= link_to "Here", new_user_path %> </h5>
