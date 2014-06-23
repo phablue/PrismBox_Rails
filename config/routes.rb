@@ -9,6 +9,8 @@ Prismbox::Application.routes.draw do
     delete 'logout', to: :destroy
   end
 
+  get "admin", to: 'admin#dashboard'
+
   get "catalog/index"
   root "catalog#welcome", as: "welcome"
   # The priority is based upon order of creation: first created -> highest priority.

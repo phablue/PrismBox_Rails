@@ -5,7 +5,7 @@
   <div class = "row row-offcanvas row-offcanvas-right">
     <div class = "col-xs-12 col-sm-9">
       <div class = "page-header">
-        <h1>Welcome <%= User.find(session[:admin_id]).name %></h1>
+
         <p> It's <%= Time.now %> </p>
       </div>
       <div class = 'row'>
@@ -17,12 +17,12 @@
         <div class = "col-6 col-sm-6 col-lg-4">
           <h2>Laptops</h2>
           <p>Manage Laptops.</p>
-          <p><%= link_to 'Laptops Management', products_url, class: "btn btn-primary btn-sm" %></p>
+          <p><%= link_to 'Laptops Management', laptops_url, class: "btn btn-primary btn-sm" %></p>
         </div>
         <div class="col-6 col-sm-6 col-lg-4">
           <h2>Orders</h2>
           <p>View and Manage Recent Order Statement.</p>
-          <p><%= link_to 'Order Statement', admin_index_url, class: "btn btn-primary btn-sm" %></p>
+          <p><%= link_to 'Order Statement', orders_url, class: "btn btn-primary btn-sm" %></p>
         </div>
       </div>
     </div>
