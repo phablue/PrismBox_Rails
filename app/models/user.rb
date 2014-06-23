@@ -4,14 +4,14 @@ class User < ActiveRecord::Base
   has_secure_password
   before_destroy :ensure_an_admin_remains
 
-  def admin?
+  def admin
     self.email == admin_email
   end
 
   private
 
   def ensure_an_admin_remains
-    raise "Can’t delete admin" if admin?
+    raise "Can’t delete admin" if admin
   end
 
   protected
