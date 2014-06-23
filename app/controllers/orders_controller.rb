@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :authorize, only:[:show, :new, :create]
+  before_action :admin_authorize, except:[:show, :new, :create]
   before_action :get_order, only:[:show, :edit, :update, :destroy]
 
   def index

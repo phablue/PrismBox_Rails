@@ -1,5 +1,6 @@
 class LaptopsController < ApplicationController
   skip_before_action :authorize
+  before_action :admin_authorize
   before_action :get_laptop, only:[:show, :edit, :update, :destroy]
 
   def index
