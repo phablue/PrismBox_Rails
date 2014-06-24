@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :name, :email, :department, presence: true
+  validates :first_name, :last_name, :email, :department, presence: true
   validates :email, uniqueness: true
   has_secure_password
   before_destroy :ensure_an_admin_remains

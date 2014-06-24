@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_parameter)
     if @user.save
-      session[:user_id] = user.email
+      session[:user_id] = @user.email
       update_current_borrowed_state(@user)
-      redirect_to @user, notice: notice_message(@user.name, "created")
+      redirect_to @user, notice: notice_message("#{@user.first_name} #{@user.last_name}", "created")
     else
       render "new"
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_parameter)
-      redirect_to @user, notice: notice_message(@user.name, "updated")
+      redirect_to @user, notice: notice_message("#{@user.first_name} #{@user.last_name}", "updated")
     else
       render "edit"
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def user_parameter
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :department)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :department)
   end
 
   def update_current_borrowed_state (user)
