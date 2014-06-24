@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_parameter)
     if @user.save
-      @user.update_attributes(current_borrowed_laptop: "Not Yet", current_borrowed_date: "N/A")
-      redirect_to @user, notice: "#{@user.name} was successfully created."
+      update_current_borrowed_state(@user)
+      redirect_to @user, notice: notice_message(@user.name, "created")
     else
       render "new"
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_parameter)
-      redirect_to @user, notice: "#{@user.name} was successfully updated."
+      redirect_to @user, notice: notice_message(@user.name, "updated")
     else
       render "edit"
     end
@@ -48,5 +48,13 @@ class UsersController < ApplicationController
 
   def user_parameter
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :department)
+  end
+
+  def update_current_borrowed_state (user)
+    user.update_attributes(current_borrowed_laptop: "Not Yet", current_borrowed_date: "N/A")
+  end
+
+  def notice_message (user_name, action)
+    "#{user_name} was successfully #{action}."
   end
 end
