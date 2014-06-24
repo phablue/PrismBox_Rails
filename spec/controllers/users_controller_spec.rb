@@ -24,7 +24,7 @@ describe UsersController do
 
   describe "POST 'create'" do
     before(:each) {
-      post :create, user: {name: "Sara", email: "sara2@example.com", password: "password3", password_confirmation: "password3", department: "Software"}
+      post :create, user: {first_name: "Sara", last_name: "Mong", email: "sara2@example.com", password: "password3", password_confirmation: "password3", department: "Software"}
     }
 
     it "Redirect to user" do
@@ -38,13 +38,13 @@ describe UsersController do
 
   describe "POST 'update'" do
     before(:each) {
-      users(:one).name.should eq "John"
-      post :update, id: users(:one).id, user: {name: "Mike"}
+      users(:one).first_name.should eq "John"
+      post :update, id: users(:one).id, user: {first_name: "Mike"}
       users(:one).reload
     }
 
-    it "users(:one).name changed to Mike" do
-      users(:one).name.should eq "Mike"
+    it "users(:one).first_name changed to Mike" do
+      users(:one).first_name.should eq "Mike"
     end
 
     it "Redirect to user" do

@@ -1,5 +1,6 @@
 one:
-  name: John
+  first_name: John
+  last_name: Coke
   email: john@example.com
   password_digest: <%= BCrypt::Password.create("password1") %>
   department: Software
@@ -7,7 +8,8 @@ one:
   current_borrowed_date:
 
 two:
-  name: Mary
+  first_name: Mary
+  last_name: Blood
   email: mary@example.com
   password_digest: password2
   department: Design
