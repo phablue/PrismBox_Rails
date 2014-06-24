@@ -163,6 +163,10 @@ h5{
   margin-top: 15px;
 }
 
+span {
+  color: blue;
+}
+
 .col-sm-5 {
   margin-bottom: 20px;
   margin-left: 10px;
