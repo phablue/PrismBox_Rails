@@ -1,6 +1,6 @@
 <% unless session[:user_id].nil? %>
   <div class="logout">
-    <p class="greeting">HELLO, <%= current_user.name.upcase %></p>
+    <p class="greeting">HELLO, <%= current_user.first_name.upcase %></p>
     <%= link_to "LOG OUT", logout_url, method: :delete , class: "btn btn-primary" %>
   </div>
 <% end %>
