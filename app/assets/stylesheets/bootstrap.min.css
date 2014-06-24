@@ -18,6 +18,23 @@ body {
   height: 100%;
 }
 
+.logout {
+  float: right;
+}
+
+.greeting {
+  font-weight: bolder;
+  font-size: 16px;
+  margin-top: 25px;
+  margin-right: 100px;
+  padding-right: 15px;
+}
+
+.logout .btn-primary {
+  float: right!important;
+  margin-top: -15%;
+}
+
 .form-signin {
   max-width: 60%;
   padding: 15px;
