@@ -1,4 +1,4 @@
-<% unless session[:user_id].nil? %>
+<% if session[:user_id].nil? %>
   <%= form_tag login_url, class: "navbar-form navbar-right" do %>
     <div class="form-group">
       <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "form-control" %>
