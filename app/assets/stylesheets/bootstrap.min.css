@@ -155,6 +155,14 @@ h5{
   font-size: 16px;
 }
 
+.new_account .btn-success {
+  font-size: 17px;
+  height: 45px;
+  margin-left: 65%;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
 .col-sm-5 {
   margin-bottom: 20px;
   margin-left: 10px;
