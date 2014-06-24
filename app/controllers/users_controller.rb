@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_parameter)
     if @user.save
+      session[:user_id] = user.email
       update_current_borrowed_state(@user)
       redirect_to @user, notice: notice_message(@user.name, "created")
     else
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    session[:user_id] = nil
     redirect_to '/'
   end
 
