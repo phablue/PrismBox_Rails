@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe OrdersController do
   fixtures :orders
+  fixtures :users
+
+  before(:each) {
+    auth_with :admin
+  }
+
+  after(:each) {
+    clear_auth
+  }
 
   describe "GET 'index'" do
     it "returns http success" do

@@ -8,7 +8,7 @@ describe LaptopsController do
     auth_with :admin
   }
 
-  after(:all) {
+  after(:each) {
     clear_auth
   }
 

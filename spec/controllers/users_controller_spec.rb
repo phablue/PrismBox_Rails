@@ -3,6 +3,14 @@ require 'spec_helper'
 describe UsersController do
   fixtures :users
 
+  before(:each) {
+    auth_with :admin
+  }
+
+  after(:each) {
+    clear_auth
+  }
+
   describe "GET 'index'" do
     it "returns http success" do
       get :index
