@@ -15,3 +15,12 @@ two:
   department: Design
   current_borrowed_laptop: MacPro
   current_borrowed_date: 2014-10-10
+
+admin:
+  first_name: admin
+  last_name: solo
+  email: testadmin@example.com
+  password_digest: password3
+  department: Software
+  current_borrowed_laptop: MacPro
+  current_borrowed_date: 2014-10-10

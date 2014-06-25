@@ -1,9 +1,9 @@
 module AuthHelpers
   def auth_with user
-    request.headers['X-ACCESS-TOKEN'] = "#{user.find_api_key.access_token}"
+    session[:user_id] = users(user).email
   end
 
-  def clearToken
-    request.headers['X-ACCESS-TOKEN'] = nil
+  def clear_auth
+    session.delete :user_id
   end
 end

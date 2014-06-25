@@ -2,6 +2,15 @@ require "spec_helper"
 
 describe LaptopsController do
   fixtures :laptops
+  fixtures :users
+
+  before(:each) {
+    auth_with :admin
+  }
+
+  after(:all) {
+    clear_auth
+  }
 
   describe "GET 'index'" do
     it "Responds successfully with an HTTP 200 status code" do
