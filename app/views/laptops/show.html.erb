@@ -23,6 +23,10 @@
     <label class="col-sm-2">CURRENT STATE</label>
     <div class="col-sm-5"><%= @laptop.state %></div><br>
   </div><br>
+  <div class="buttons">
+    <%= link_to "Edit", edit_laptop_path(@laptop), class: "btn btn-info" %> 
+    <%= link_to "Delete", @laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+  </div><br>
   <div class="back">
   <%= link_to "Back", laptops_url , class: "btn btn-primary"%>
   </div>

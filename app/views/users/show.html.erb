@@ -17,6 +17,10 @@
     <label class="col-sm-3">CURRENT BORROWED DATE</label>
     <div class="col-sm-5"><%= @user.current_borrowed_date %></div><br>
   </div><br>
+  <div class="buttons">
+    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-info" %> 
+    <%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+  </div><br>
   <div class="back">
   <%= link_to "Back", '/' , class: "btn btn-primary"%>
   </div>

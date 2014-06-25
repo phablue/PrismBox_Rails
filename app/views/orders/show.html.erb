@@ -3,19 +3,19 @@
       <p class = "alert alert-success"><%= notice %></p> 
   <% end %>
   <div class="page-header">
-    <h1><%= @user.name%> PROFILE</h1>
+    <h1><%= @order.id%> Detail</h1>
   </div>
-  <div class="user_profile"><br>
+  <div class="order_detail"><br>
     <label class="col-sm-3">NAME</label>
-    <div class="col-sm-5"><%= @user.name %></div><br>
+    <div class="col-sm-5"><%= @order.name %></div><br>
     <label class="col-sm-3">EMAIL</label>
-    <div class="col-sm-5"><%= @user.email %></div><br>
+    <div class="col-sm-5"><%= @order.email %></div><br>
     <label class="col-sm-3">DEPARTMENT</label>
-    <div class="col-sm-5"><%= @user.department %></div><br>
-    <label class="col-sm-3">CURRENT BORROWED LAPTOP</label>
-    <div class="col-sm-5"><%= @user.current_borrowed_laptop %></div><br>
-    <label class="col-sm-3">CURRENT BORROWED DATE</label>
-    <div class="col-sm-5"><%= @user.current_borrowed_date %></div><br>
+    <div class="col-sm-5"><%= @order.laptop_number %></div><br>
+  </div><br>
+  <div class="buttons">
+    <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %> 
+    <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
   </div><br>
   <div class="back">
   <%= link_to "Back", '/' , class: "btn btn-primary"%>
