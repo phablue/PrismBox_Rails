@@ -15,8 +15,10 @@
           <th>PURCHASED DATE</th>
           <th>CURRENT STATE</th>
           <th></th>
-          <th></th>
-          <th></th>
+          <% if current_user.admin %>
+            <th></th>
+            <th></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -32,12 +34,16 @@
           <td><%= laptop.purchased_date %></td>
           <td><%= laptop.state %></td>
           <td><%= link_to "SHOW", laptop_path(laptop) %></td>
-          <td><%= link_to "EDIT", edit_laptop_path(laptop) %></td>
-          <td><%= link_to "DELETE", laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
+          <% if current_user.admin %>
+            <td><%= link_to "EDIT", edit_laptop_path(laptop) %></td>
+            <td><%= link_to "DELETE", laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <%= link_to "New Laptop", new_laptop_path , class: "btn btn-primary"%><br><br>
+    <% if current_user.admin %>
+      <%= link_to "New Laptop", new_laptop_path , class: "btn btn-primary"%><br><br>
+    <% end %>
   </div>
 </div>

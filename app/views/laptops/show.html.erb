@@ -24,8 +24,12 @@
     <div class="col-sm-5"><%= @laptop.state %></div><br>
   </div><br>
   <div class="buttons">
-    <%= link_to "Edit", edit_laptop_path(@laptop), class: "btn btn-info" %> 
-    <%= link_to "Delete", @laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+    <% if current_user.admin %>
+      <%= link_to "Edit", edit_laptop_path(@laptop), class: "btn btn-info" %>
+      <%= link_to "Delete", @laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+    <% else %>
+      <%= link_to "Borrow Order", new_order_path, class: "btn btn-info" %>
+    <% end %>
   </div><br>
   <div class="back">
   <%= link_to "Back", laptops_url , class: "btn btn-primary"%>

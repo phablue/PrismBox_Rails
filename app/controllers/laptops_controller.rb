@@ -1,5 +1,5 @@
 class LaptopsController < ApplicationController
-  before_action :admin_authorize
+  before_action :admin_authorize, except:[:index, :show]
   before_action :get_laptop, only:[:show, :edit, :update, :destroy]
 
   def index
