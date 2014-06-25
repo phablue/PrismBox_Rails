@@ -14,15 +14,15 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">Name</label>
     <div class="col-sm-5">
-      <%= f.text_field :name, value: current_user_full_name, class: "form-control", disabled: !current_user.admin %>
+      <%= f.text_field :name, value: current_user_full_name, class: "form-control", readonly: !current_user.admin %>
     </div><br>
     <label class="col-sm-2 control-label">Email</label>
     <div class="col-sm-5">
-      <%= f.text_field :email, value: current_user.email, class: "form-control", disabled: !current_user.admin %>
+      <%= f.text_field :email, value: current_user.email, class: "form-control", readonly: !current_user.admin %>
     </div><br>
     <label class="col-sm-2 control-label">RENT LAPTOP SERIAL NUMBER</label>
     <div class="col-sm-5">
-      <%= f.text_field :laptop_number, value: selected_laptop.serial_number, class: "form-control", disabled: !current_user.admin %>
+      <%= f.text_field :laptop_number, value: selected_laptop.serial_number, class: "form-control", readonly: !current_user.admin %>
     </div><br>
   </div>
   <%= f.submit "Place your order", class: "btn btn-success" %>
