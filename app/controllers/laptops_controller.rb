@@ -7,6 +7,7 @@ class LaptopsController < ApplicationController
   end
 
   def show
+    session[:laptop_id] = @laptop
   end
 
   def new
