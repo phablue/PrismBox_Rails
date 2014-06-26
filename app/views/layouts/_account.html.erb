@@ -1,0 +1,16 @@
+<div class="greeting">
+  <div class="dropdown">
+    <a href="#" class="dropdown-toggle">
+      <p>HELLO, <%= current_user.first_name.upcase %><br>Your Account<b class="caret"></b></p>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-header">Settings</li>
+      <li><%= link_to "Change Account Setting", edit_user_path(current_user) %></li>
+      <li><%= link_to "Cancel Account", current_user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."} %></li>
+      <li class="divider"></li>
+      <li class="dropdown-header">Your Orders</li>
+      <li><a href="#">Recent Order</a></li>
+      <li><a href="#">Order History</a></li>
+    </ul>
+  </div>
+</div>
