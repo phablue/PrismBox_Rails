@@ -7,11 +7,11 @@
   </div>
   <div class="order_detail"><br>
     <label class="col-sm-3">NAME</label>
-    <div class="col-sm-5"><%= @order.name %></div><br>
+    <div class="col-sm-5"><%= @order.full_name %></div><br>
     <label class="col-sm-3">EMAIL</label>
     <div class="col-sm-5"><%= @order.email %></div><br>
     <label class="col-sm-3">DEPARTMENT</label>
-    <div class="col-sm-5"><%= @order.laptop_number %></div><br>
+    <div class="col-sm-5"><%= @order.laptop_serial_number %></div><br>
   </div><br>
   <div class="buttons">
     <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %> 

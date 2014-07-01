@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20140604193037) do
   end
 
   create_table "orders", force: true do |t|
-    t.string   "name"
+    t.string   "full_name"
     t.string   "email"
-    t.string   "laptop_number"
+    t.string   "laptop_serial_number"
+    t.string   "order_confirm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

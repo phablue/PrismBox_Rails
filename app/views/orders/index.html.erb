@@ -18,9 +18,9 @@
         <% @orders.each do |order| %>
         <tr>
           <td></td>
-          <td><%= order.name %></td>
+          <td><%= order.full_name %></td>
           <td><%= order.email %></td>
-          <td><%= order.laptop_number %></td>
+          <td><%= order.laptop_serial_number %></td>
           <td><%= link_to "SHOW", order_path(order) %></td>
           <td><%= link_to "EDIT", edit_order_path(order) %></td>
           <td><%= link_to "DELETE", order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>

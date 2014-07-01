@@ -1,9 +1,9 @@
 one:
-  name: John
+  full_name: John
   email: john@example.com
-  laptop_number: macair1234
+  laptop_serial_number: macair1234
 
 two:
-  name: Lisa
+  full_name: Lisa
   email: lisa@example.com
-  laptop_number: macpro5678
+  laptop_serial_number: macpro5678

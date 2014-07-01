@@ -1,3 +1,3 @@
 class Order < ActiveRecord::Base
-  validates :name, :email, :laptop_number, presence: true
+  validates :full_name, :email, :laptop_serial_number, presence: true
 end
