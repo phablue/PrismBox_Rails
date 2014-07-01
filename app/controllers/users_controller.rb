@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authorize, except:[:index]
   before_action :admin_authorize, only:[:index]
   before_action :get_user, only:[:show, :edit, :update, :destroy]
 
