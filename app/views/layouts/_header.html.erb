@@ -1,11 +1,7 @@
 <div class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <% if current_user.admin %>
-        <%= link_to "Prism Box", admin_url , class: "navbar-brand"%>
-      <% else %>
-        <%= link_to "Prism Box", "/" , class: "navbar-brand"%>
-      <% end %>
+      <%= link_to "Prism Box", title_link , class: "navbar-brand"%>
     </div>
     <%= render "layouts/login" %>
     <%= render "layouts/logout" %>
