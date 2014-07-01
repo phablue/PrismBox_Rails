@@ -44,6 +44,7 @@
     </table>
     <% if current_user.admin %>
       <%= link_to "New Laptop", new_laptop_path , class: "btn btn-primary"%><br><br>
+      <%= link_to "Home", admin_url , class: "btn btn-primary"%>
     <% end %>
   </div>
 </div>

@@ -21,7 +21,9 @@
     <%= link_to "Edit", edit_user_path(@user), class: "btn btn-info" %> 
     <%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
   </div><br>
-  <div class="back">
-  <%= link_to "Back", '/' , class: "btn btn-primary"%>
-  </div>
+  <% if current_user.admin %>
+    <%= link_to "Back to Users List", users_url , class: "btn btn-primary"%>
+  <% else %>
+    <%= link_to "Home", "/" , class: "btn btn-primary"%>
+  <% end %>
 </div>
