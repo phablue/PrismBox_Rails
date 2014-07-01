@@ -3,7 +3,7 @@ module ApplicationHelper
     User.find_by_email(session[:user_id])
   end
 
-  def title_link
+  def title_url_by_user
     if current_user.nil?
       return "/"
     else
