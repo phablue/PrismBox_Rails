@@ -26,7 +26,7 @@ describe OrdersController do
 
   describe "POST 'create'" do
     before(:each) do
-      post :create, order: {name: "Sara", email: "sara2@example.com", laptop_number: "pro9876"}
+      post :create, order: {full_name: "Sara", email: "sara2@example.com", laptop_serial_number: "pro9876"}
     end
 
     it "Redirect to order" do
@@ -40,8 +40,8 @@ describe OrdersController do
 
   describe "POST 'update'" do
     before(:each) do
-      orders(:one).name.should eq "John"
-      post :update, id: orders(:one).id, order: {name: "Mike"}
+      orders(:one).full_name.should eq "John"
+      post :update, id: orders(:one).id, order: {full_name: "Mike"}
       orders(:one).reload
     end
 
