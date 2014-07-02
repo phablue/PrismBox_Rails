@@ -5,26 +5,52 @@
   <div class = "row row-offcanvas row-offcanvas-right">
     <div class = "col-xs-12 col-sm-9">
       <div class = "page-header">
-
-        <p> It's <%= Time.zone.now %> </p>
+        <h3> It's <%= Time.zone.now %> </h3>
       </div>
       <div class = 'row'>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Users</h2>
-          <p>View and Manage All User List.</p>
-          <p><%= link_to 'Users Management', users_url, class: "btn btn-primary btn-sm" %></p>
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active">Laptops Management</li>
+            <li><a href="#">Rented Laptops</a></li>
+            <li><a href="#">Laptop Stocks</a></li>
+            <li><a href="#">All Laptops</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li class="active">Orders Management</li>
+            <li><a href="">New Orders</a></li>
+            <li><a href="">Confired Orders</a></li>
+            <li><a href="">All Ordera</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li class="active">Users Management</li>
+            <li><a href="">All Users</a></li>
+          </ul>
         </div>
-        <div class = "col-6 col-sm-6 col-lg-4">
-          <h2>Laptops</h2>
-          <p>Manage Laptops.</p>
-          <p><%= link_to 'Laptops Management', laptops_url, class: "btn btn-primary btn-sm" %></p>
-        </div>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Orders</h2>
-          <p>View and Manage Recent Order Statement.</p>
-          <p><%= link_to 'Order Statement', orders_url, class: "btn btn-primary btn-sm" %></p>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">New Orders</h1>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
