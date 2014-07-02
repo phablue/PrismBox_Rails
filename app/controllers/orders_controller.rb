@@ -36,7 +36,11 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
-    redirect_to "/"
+    if current_user.admin
+      redirect_to orders_url
+    else
+      redirect_to "/"
+    end
   end
 
   private
