@@ -45,6 +45,6 @@ class OrdersController < ApplicationController
   end
 
   def order_parameter
-    params.require(:order).permit(:full_name, :email, :laptop_serial_number)
+    params.require(:order).permit(:full_name, :email, :laptop_serial_number, :order_confirm)
   end
 end
