@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.create(order_parameter)
     if @order.save
+      change_laptop_statment
       redirect_to @order, notice: 'Successfully ordered.'
     else
       render "new"
@@ -46,5 +47,10 @@ class OrdersController < ApplicationController
 
   def order_parameter
     params.require(:order).permit(:full_name, :email, :laptop_serial_number, :order_confirm)
+  end
+
+  def change_laptop_statment
+    session[:laptop_id].update_attributes(state: "RESERVES")
+    session[:laptop_id] = nil
   end
 end
