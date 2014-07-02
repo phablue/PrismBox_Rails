@@ -28,7 +28,7 @@
       <% if current_user.admin %>
         <label class="col-sm-3 control-label">ORDER STATEMENT</label>
         <div class="col-sm-5">
-          <%= f.check_box :order_confirm, checked_value: "CONFIRM", unchecked_value: "PROCESSING", class: "form-control" %>
+          <%= f.check_box :order_confirm, {class: "check_box"}, "CONFIRM", "PROCESSING" %>
         </div><br>
       <% end %>
     </div>
