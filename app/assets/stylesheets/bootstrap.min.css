@@ -181,6 +181,20 @@ span {
   size: 20;
 }
 
+.order_show .col-sm-5 {
+  float: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-left: 15%;
+  width: 50%;
+}
+
+.order_show .col-sm-3 {
+  font-size: 22px;
+  width: 40%;
+  margin-bottom: 20px;
+}
+
 .btn-success {
   font-size: 18px;
   height: 45px;
