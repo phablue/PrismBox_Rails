@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
   end
 
   def change_laptop_statment
-    session[:laptop_id].update_attributes(state: "RESERVES")
+    session[:laptop_id].update_attributes(state: "RESERVED")
     session[:laptop_id] = nil
   end
 end
