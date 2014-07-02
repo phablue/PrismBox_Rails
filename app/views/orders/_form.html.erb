@@ -23,7 +23,7 @@
       </div><br>
       <label class="col-sm-3 control-label">RENT LAPTOP SERIAL NUMBER</label>
       <div class="col-sm-5">
-        <%= f.text_field :laptop_serial_number, value: selected_laptop.serial_number, class: "form-control", readonly: !current_user.admin %>
+        <%= f.text_field :laptop_serial_number, value: session[:laptop_id].serial_number, class: "form-control", readonly: !current_user.admin %>
       </div><br>
       <% if current_user.admin %>
         <label class="col-sm-3 control-label">ORDER STATEMENT</label>
