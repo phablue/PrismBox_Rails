@@ -17,9 +17,9 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active">Orders Management</li>
-            <li><%= link_to "All Orders", orders_url %></li>
-            <li><a href="">Confirmed Orders</a></li>
-            <li><a href="">New Orders</a></li>
+            <li><%= link_to "All Orders", orders_url, data:{id: "allOrders"} %></li>
+            <li><%= link_to "Confirmed Orders", orders_url, data:{id: "confirmedOrders"} %></li>
+            <li><%= link_to "New Orders", orders_url, data:{id: "newOrders"} %></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active">Users Management</li>
