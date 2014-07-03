@@ -1,8 +1,8 @@
 <div class="greeting">
   <div class="dropdown">
-    <a href="#" class="dropdown-toggle">
+    <%= link_to title_url_by_user, class: "dropdown-toggle" do %>
       <p>HELLO, <%= current_user.first_name.upcase %><br>Your Account<b class="caret"></b></p>
-    </a>
+    <% end %>
     <ul class="dropdown-menu">
       <li class="dropdown-header">Settings</li>
       <li><%= link_to "Change Account Setting", edit_user_path(current_user) %></li>
