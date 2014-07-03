@@ -1,7 +1,11 @@
 (function() {
   var Account = {
-    mouseToggle: function (element) {
-      console.log (Account)
+    dropdownMenu: function() {
+      this.mouseToggle(".dropdown-toggle");
+      this.mouseToggle(".dropdown-menu");
+    },
+
+    mouseToggle: function(element) {
       Account.mouseOver(element);
       Account.mouseLeave(element);
     },
@@ -28,6 +32,5 @@
 })();
 
 +$(function() {
-  Account.mouseToggle(".dropdown-toggle");
-  Account.mouseToggle(".dropdown-menu"); 
+  Account.dropdownMenu();
 });
