@@ -6,8 +6,8 @@
     },
 
     mouseToggle: function(element) {
-      Account.mouseOver(element);
-      Account.mouseLeave(element);
+      this.mouseOver(element);
+      this.mouseLeave(element);
     },
 
     mouseOver: function(element) {
@@ -31,6 +31,12 @@
 
 })();
 
-+$(function() {
+var DropdownMenu = function() {
   Account.dropdownMenu();
+};
+
+$(function() {
+  DropdownMenu()
 });
+
+$(document).on('page:load', DropdownMenu);
