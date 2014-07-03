@@ -10,13 +10,3 @@
   window.Orders = Orders;
 
 })();
-
-var ClickedTargetDataID = function() {
-  Orders.getClickedTargetDataID()
-};
-
-$(function() {
-  ClickedTargetDataID()
-});
-
-$(document).on('page:load', ClickedTargetDataID);

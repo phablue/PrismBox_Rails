@@ -30,13 +30,3 @@
   window.Account = Account
 
 })();
-
-var DropdownMenu = function() {
-  Account.dropdownMenu();
-};
-
-$(function() {
-  DropdownMenu()
-});
-
-$(document).on('page:load', DropdownMenu);
