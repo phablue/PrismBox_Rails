@@ -1,6 +1,8 @@
 prismbox = ->
-  (new Account).dropdownMenu()
-  (new Orders).getClickedTargetDataID()
+  account = new Account
+  orders = new Orders
+  account.dropdownMenu()
+  orders.getClickedTargetDataID(orders.chosenOrdersStatementType)
 
 $ ->
   prismbox()
