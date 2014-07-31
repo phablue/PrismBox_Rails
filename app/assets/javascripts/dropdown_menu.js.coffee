@@ -1,4 +1,4 @@
-class Account
+class DropDownMenu
   constructor: ->
 
   dropdownMenu: ->
@@ -20,4 +20,4 @@ class Account
   toggleClass: (remove, add) ->
     $(".dropdown").removeClass(remove).addClass(add)
 
-window.Account = Account
+window.DropDownMenu = DropDownMenu

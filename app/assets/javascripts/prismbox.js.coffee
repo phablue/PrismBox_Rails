@@ -1,9 +1,7 @@
-prismbox = ->
-  account = new Account
-  orders = new Orders
-  account.dropdownMenu()
-  orders.getClickedTargetDataID(orders.chosenOrdersStatementType)
+prismboxUI = ->
+  (new DropDownMenu).dropdownMenu()
+  (new OrdersStatus).ordersStatus()
 
 $ ->
-  prismbox()
-  $(@).on('page:load', prismbox)
+  prismboxUI()
+  $(@).on('page:load', prismboxUI)
