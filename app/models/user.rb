@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
     raise "Can’t delete admin" if admin
   end
 
-  protected
-
   def admin_email
     "testadmin@example.com"
   end
