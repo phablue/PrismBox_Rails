@@ -1,6 +1,5 @@
 prismboxUI = ->
   (new DropDownMenu).dropdownMenu()
-  (new OrdersStatus).ordersStatus()
 
 $ ->
   prismboxUI()

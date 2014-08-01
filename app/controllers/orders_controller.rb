@@ -3,8 +3,14 @@ class OrdersController < ApplicationController
   before_action :get_order, only:[:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
-    puts data[:id]
+    puts params[:state] == "new"
+    if params[:state] == "new"
+      @orders = Order.where(order_state: "PROCESSING")
+    elsif params[:state] == "confirmed"
+      @orders = Order.where(order_state: "CONFIRMED")
+    else
+      @orders = Order.all
+    end
   end
 
   def show
