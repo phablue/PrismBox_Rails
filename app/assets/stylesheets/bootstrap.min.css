@@ -286,3 +286,7 @@ h2 small {
   color: #fff;
   background-color: #428bca;
 }
+
+.col-md-10 {
+  width: 100%;
+}

@@ -33,20 +33,22 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>FULL NAME</th>
+                  <th>EMAIL</th>
+                  <th>LAPTOP SERIAL NUMBER</th>
+                  <th>ORDER STATEMENT</th>
                 </tr>
               </thead>
               <tbody>
+                <% new_orders.each do |order| %>
                 <tr>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><%= order.full_name %></td>
+                  <td><%= order.email %></td>
+                  <td><%= order.laptop_serial_number %></td>
+                  <td><%= order.order_status %></td>
                 </tr>
+                <% end %>
               </tbody>
             </table>
           </div>
