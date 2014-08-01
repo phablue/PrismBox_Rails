@@ -9,6 +9,6 @@ class OrdersStatus
       callback($(e.target).attr("data-id")))
 
   chosenOrderStatusType: (ordersStatus) ->
-    $.post("index", {chosen_orders_status: ordersStatus})
+    $.post("orders", {chosen_orders_status: ordersStatus})
 
 window.OrdersStatus = OrdersStatus

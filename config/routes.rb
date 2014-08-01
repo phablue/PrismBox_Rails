@@ -1,11 +1,12 @@
 Prismbox::Application.routes.draw do
   resources :laptops
   resources :users
-  resources :orders, only: [:new,:create,:edit,:update,:show,:destroy]
+  resources :orders, only: [:new,:edit,:update,:show,:destroy]
 
   controller :orders do
-    get "orders", to: :index
-    post "orders", to: :index
+    get "orders", to: :index, as: :orders
+    post "orders", to: :status
+    post "orders", to: :create
   end
 
   controller :sessions do
