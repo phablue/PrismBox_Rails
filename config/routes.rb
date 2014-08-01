@@ -1,7 +1,7 @@
 Prismbox::Application.routes.draw do
   resources :laptops
   resources :users
-  resources :orders, only: [:new,:edit,:update,:show,:destroy]
+  resources :orders
 
   controller :orders do
     get "orders", to: :index, as: :orders

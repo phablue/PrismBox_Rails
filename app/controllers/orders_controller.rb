@@ -3,11 +3,7 @@ class OrdersController < ApplicationController
   before_action :get_order, only:[:show, :edit, :update, :destroy]
 
   def index
-  end
-
-  def status
-    session[:orders_state] = params[:chosen_orders_status]
-    redirect_to orders_url 
+    @orders = Order.all
   end
 
   def show
