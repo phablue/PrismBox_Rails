@@ -15,7 +15,7 @@
       <div class="col-sm-5"><%= @order.laptop_serial_number %></div><br>
       <% if current_user.admin %>
         <label class="col-sm-3">ORDER STATEMENT</label>
-        <div class="col-sm-5"><%= @order.order_confirm %></div><br>
+        <div class="col-sm-5"><%= @order.order_status %></div><br>
       <% end %>
     </div><br>
     <div class="buttons">

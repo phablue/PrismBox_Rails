@@ -21,7 +21,7 @@
           <td><%= order.full_name %></td>
           <td><%= order.email %></td>
           <td><%= order.laptop_serial_number %></td>
-          <td><%= order.order_confirm %></td>
+          <td><%= order.order_status %></td>
           <td><%= link_to "SHOW", order_path(order) %></td>
           <td><%= link_to "EDIT", edit_order_path(order) %></td>
           <td><%= link_to "DELETE", order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
