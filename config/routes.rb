@@ -3,12 +3,6 @@ Prismbox::Application.routes.draw do
   resources :users
   resources :orders
 
-  controller :orders do
-    get "orders", to: :index, as: :orders
-    post "orders", to: :status
-    post "orders", to: :create
-  end
-
   controller :sessions do
     get 'login', to: :new
     post 'login', to: :create 

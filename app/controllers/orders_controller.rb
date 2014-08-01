@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    puts data[:id]
   end
 
   def show
