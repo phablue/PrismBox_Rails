@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.create(order_parameter)
     if @order.save
-      change_laptop_statment
+      change_laptop_status("RESERVED")
       redirect_to @order, notice: 'Successfully ordered.'
     else
       render "new"
@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update_attributes(order_parameter)
+      check_order_status
       redirect_to @order, notice: 'Order was successfully updated.'
     else
       render "edit"
@@ -59,8 +60,14 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:full_name, :email, :laptop_serial_number, :order_status)
   end
 
-  def change_laptop_statment
-    session[:laptop_id].update_attributes(state: "RESERVED")
+  def change_laptop_status statement
+    session[:laptop_id].update_attributes(state: statement)
     session[:laptop_id] = nil
+  end
+
+  def check_order_status
+    if @order.order_status = "CONFIRMED"
+      change_laptop_status("LEND")
+    end
   end
 end
