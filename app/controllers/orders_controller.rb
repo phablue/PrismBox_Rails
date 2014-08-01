@@ -3,8 +3,11 @@ class OrdersController < ApplicationController
   before_action :get_order, only:[:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
-    @orders_statement
+  end
+
+  def status
+    session[:orders_state] = params[:chosen_orders_status]
+    redirect_to orders_url 
   end
 
   def show
@@ -57,9 +60,5 @@ class OrdersController < ApplicationController
   def change_laptop_statment
     session[:laptop_id].update_attributes(state: "RESERVED")
     session[:laptop_id] = nil
-  end
-
-  def orders_statement
-    params[:chosen_orders_statement]
   end
 end
