@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20140604193037) do
   end
 
   create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "order_id"
     t.string   "full_name"
     t.string   "email"
     t.string   "laptop_serial_number"
