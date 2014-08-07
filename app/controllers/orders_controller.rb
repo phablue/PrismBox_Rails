@@ -42,6 +42,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def confirm_all_new_orders
+    Order.where(order_status: "PROCESSING").update_all(order_status: "CONFIRMED")
+    redirect_to orders_url, notice: 'All new orders status was successfully confirmed.'
+  end
+
   def destroy
     @order.destroy
     if current_user.admin
