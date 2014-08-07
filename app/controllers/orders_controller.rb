@@ -33,12 +33,7 @@ class OrdersController < ApplicationController
 
   def update
     session[:laptop_id] = Laptop.find(@order.laptop_id)
-    if @order.update_attributes(order_parameter)
-      check_order_status
-      redirect_to @order, notice: 'Order was successfully updated.'
-    else
-      render "edit"
-    end 
+    confirm(@order)
   end
 
   def destroy
@@ -65,9 +60,12 @@ class OrdersController < ApplicationController
     session[:laptop_id] = nil
   end
 
-  def check_order_status
-    if @order.order_status = "CONFIRMED"
-      change_laptop_status("LEND")
+  def confirm new_order
+    if new_order.update_attributes(order_status: "CONFIRMED")
+      change_laptop_status("RENTED")
+      redirect_to @order, notice: 'Order status was successfully confirmed.'
+    else
+      render "edit"
     end
   end
 
