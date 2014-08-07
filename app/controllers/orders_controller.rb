@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :admin_authorize, except:[:show, :new, :create]
-  before_action :get_order, only:[:show, :edit, :update, :destroy]
+  before_action :get_order, only:[:show, :edit, :update, :destroy, :get_session_laptop_id]
+  before_action :get_session_laptop_id, only:[:edit, :update, :destroy]
 
   def index
    if params[:state] == "all" || params[:state].nil?
@@ -30,7 +31,6 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    session[:laptop_id] = Laptop.find(@order.laptop_id)
   end
 
   def update
@@ -54,6 +54,8 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
+    change_laptop_status("STOCKS")
+    change_user_rent_status("Not Yet", "N/A")
     if current_user.admin
       redirect_to orders_url
     else
@@ -64,6 +66,10 @@ class OrdersController < ApplicationController
   private
   def index_by state
     Order.where(order_status: state)
+  end
+
+  def get_session_laptop_id
+    session[:laptop_id] = Laptop.find(@order.laptop_id)
   end
 
   def get_order
