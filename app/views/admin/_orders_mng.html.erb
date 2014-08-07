@@ -1,0 +1,4 @@
+<li class="active">Orders Management</li>
+<li class="order_state"><%= link_to "All Orders", {action: "index", controller: "orders", state: "all"} %></li>
+<li class="order_state"><%= link_to "Orders Confirmed", {action: "index", controller: "orders", state: "confirmed"} %></li>
+<li class="order_state"><%= link_to "New Orders", {action: "index", controller: "orders", state: "processing"} %></li>
