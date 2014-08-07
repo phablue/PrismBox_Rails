@@ -3,12 +3,10 @@ class OrdersController < ApplicationController
   before_action :get_order, only:[:show, :edit, :update, :destroy]
 
   def index
-    if params[:state] == "new"
-      @orders = Order.where(order_status: "PROCESSING")
-    elsif params[:state] == "confirmed"
-      @orders = Order.where(order_status: "CONFIRMED")
-    else
+   if params[:state] == "all" || params[:state].nil?
       @orders = Order.all
+    else
+      @orders = index_by(params[:state].upcase)
     end
   end
 
@@ -69,5 +67,9 @@ class OrdersController < ApplicationController
     if @order.order_status = "CONFIRMED"
       change_laptop_status("LEND")
     end
+  end
+
+  def index_by state
+    Order.where(order_status: state)
   end
 end
