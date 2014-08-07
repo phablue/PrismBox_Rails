@@ -34,7 +34,12 @@ class OrdersController < ApplicationController
   end
 
   def update
-    confirm(@order)
+    if @order.update_attributes(order_parameter)
+      change_others_status(@order.order_status, @order)
+      redirect_to @order, notice: 'Order status was successfully updated.'
+    else
+      render "edit"
+    end
   end
 
   def destroy
@@ -65,17 +70,16 @@ class OrdersController < ApplicationController
   end
 
   def change_user_rent_status laptop, date
-    current_user.update_attributes(current_borrowed_laptop: laptop)
-    current_user.update_attributes(current_borrowed_date: date)
+    current_user.update_attributes(current_borrowed_laptop: laptop, current_borrowed_date: date)
   end
 
-  def confirm new_order
-    if new_order.update_attributes(order_status: "CONFIRMED")
+  def change_others_status statement, order
+    if statement == "CONFIRMED"
       change_laptop_status("RENTED")
-      change_user_rent_status(new_order.laptop_serial_number, new_order.updated_at)
-      redirect_to @order, notice: 'Order status was successfully confirmed.'
+      change_user_rent_status(order.laptop_serial_number, order.updated_at.slice(1,10))
     else
-      render "edit"
+      change_laptop_status("RESERVED")
+      change_user_rent_status("REQUEST", "REQUEST")
     end
   end
 end
