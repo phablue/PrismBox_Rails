@@ -46,6 +46,9 @@ class OrdersController < ApplicationController
   end
 
   private
+  def index_by state
+    Order.where(order_status: state)
+  end
 
   def get_order
     @order = Order.find(params[:id])
@@ -67,9 +70,5 @@ class OrdersController < ApplicationController
     else
       render "edit"
     end
-  end
-
-  def index_by state
-    Order.where(order_status: state)
   end
 end
