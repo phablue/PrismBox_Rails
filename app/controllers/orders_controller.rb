@@ -30,10 +30,10 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    session[:laptop_id] = Laptop.find(@order.laptop_id)
   end
 
   def update
-    session[:laptop_id] = Laptop.find(@order.laptop_id)
     confirm(@order)
   end
 
