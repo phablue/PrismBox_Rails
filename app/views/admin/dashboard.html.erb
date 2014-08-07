@@ -11,9 +11,10 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active">Laptops Management</li>
-            <li><%= link_to "All Laptops", laptops_url %></li>
-            <li><a href="#">Laptop Stocks</a></li>
-            <li><a href="#">Rented Laptops</a></li>
+            <li class="order_state"><%= link_to "All Laptops", {action: "index", controller: "laptops", state: "all"} %></li>
+            <li class="order_state"><%= link_to "Laptops Stocks", {action: "index", controller: "laptops", state: "stocks"} %></li>
+            <li class="order_state"><%= link_to "Laptops Reserved", {action: "index", controller: "laptops", state: "reserved"} %></li>
+            <li class="order_state"><%= link_to "Laptops Rented", {action: "index", controller: "laptops", state: "rented"} %></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active">Orders Management</li>

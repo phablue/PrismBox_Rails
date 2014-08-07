@@ -3,7 +3,11 @@ class LaptopsController < ApplicationController
   before_action :get_laptop, only:[:show, :edit, :update, :destroy]
 
   def index
-    @laptops = Laptop.all
+    if params[:state] == "all" || params[:state].nil?
+      @laptops = Laptop.all
+    else
+      @laptops = index_by(params[:state].upcase)
+    end
   end
 
   def show
@@ -17,7 +21,7 @@ class LaptopsController < ApplicationController
   def create
     @laptop = Laptop.create(laptop_parameter)
     if @laptop.save
-      @laptop.update_attributes(state: "STOCKED")
+      @laptop.update_attributes(state: "STOCKS")
       redirect_to @laptop, notice: 'Laptop was successfully created.'
     else
       render "new"
@@ -41,12 +45,15 @@ class LaptopsController < ApplicationController
   end
 
   private
-
   def get_laptop
     @laptop = Laptop.find(params[:id])
   end
 
   def laptop_parameter
     params.require(:laptop).permit(:serial_number, :model_, :hdd_size, :cpu_speed, :ram, :screen_size, :purchased_date, :state)
+  end
+
+  def index_by state
+    Laptop.where(state: state)
   end
 end
