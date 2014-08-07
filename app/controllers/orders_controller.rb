@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_parameter)
+    @order.attributes = {laptop_id: session[:laptop_id].id, user_id: current_user.id}
     if @order.save
       change_laptop_status("RESERVED")
       redirect_to @order, notice: 'Successfully ordered.'
@@ -31,6 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def update
+    session[:laptop_id] = Laptop.find(@order.laptop_id)
     if @order.update_attributes(order_parameter)
       check_order_status
       redirect_to @order, notice: 'Order was successfully updated.'
