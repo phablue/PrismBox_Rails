@@ -3,6 +3,11 @@ Prismbox::Application.routes.draw do
   resources :users
   resources :orders
 
+  controller :orders do
+    get "confirm_all", to: :confirm_all_new_orders
+    patch "confirm_all", to: :confirm_all_new_orders
+  end
+
   controller :sessions do
     get 'login', to: :new
     post 'login', to: :create 

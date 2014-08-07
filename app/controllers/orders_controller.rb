@@ -43,8 +43,13 @@ class OrdersController < ApplicationController
   end
 
   def confirm_all_new_orders
-    Order.where(order_status: "PROCESSING").update_all(order_status: "CONFIRMED")
-    redirect_to orders_url, notice: 'All new orders status was successfully confirmed.'
+    orders = Order.where(order_status: "PROCESSING")
+    orders.each do |order|
+      session[:laptop_id] = Laptop.find(order.laptop_id)
+      order.update_attributes(order_status: "CONFIRMED")
+      change_others_status(order.order_status, order)
+    end
+    redirect_to admin_url, notice: 'All new orders status was successfully confirmed.'
   end
 
   def destroy
