@@ -76,7 +76,7 @@ class OrdersController < ApplicationController
   def change_others_status statement, order
     if statement == "CONFIRMED"
       change_laptop_status("RENTED")
-      change_user_rent_status(order.laptop_serial_number, order.updated_at.slice(1,10))
+      change_user_rent_status(order.laptop_serial_number, order.updated_at.to_date)
     else
       change_laptop_status("RESERVED")
       change_user_rent_status("REQUEST", "REQUEST")
