@@ -10,4 +10,8 @@ describe Laptop do
     it { should validate_presence_of :screen_size }
     it { should validate_presence_of :purchased_date }
   end
+
+  describe "Chcek relationship with orders" do
+    it { should have_many(:orders) }
+  end
 end

@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   has_secure_password
   before_destroy :ensure_an_admin_remains
   has_many :orders
-  has_one :laptop
 
   def admin
     self.email == admin_email
