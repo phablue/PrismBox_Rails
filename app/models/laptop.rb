@@ -1,6 +1,6 @@
 class Laptop < ActiveRecord::Base
   validates :serial_number, :model_, :hdd_size, :cpu_speed, :ram, :screen_size, :purchased_date, presence: true
-  validate :purchased_date, :purchased_date_in_the_future
+  validate :purchased_date_in_the_future
   has_many :orders
 
   def purchased_date_in_the_future
