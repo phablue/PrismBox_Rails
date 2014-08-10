@@ -29,7 +29,7 @@ describe LaptopsController do
 
   describe "POST 'create'" do
     before(:each) {
-      post :create, laptop: {serial_number: "9876", model_: "MacPro", hdd_size: "50GB", cpu_speed: 'Fast',  ram: 'Big',  screen_size: '55"', purchased_date: "2014-05-06"}      
+      post :create, laptop: {serial_number: "9876", model_: "MacPro", hdd_size: "50GB", cpu_speed: 'Fast',  ram: 'Big',  screen_size: '55"', purchased_date: "2014-05-06"}
     }
 
     it "Responds redirect to laptop" do

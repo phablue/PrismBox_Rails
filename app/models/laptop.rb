@@ -3,6 +3,7 @@ class Laptop < ActiveRecord::Base
   validate :purchased_date_in_the_future
   has_many :orders
 
+  private
   def purchased_date_in_the_future
     if purchased_date > Date.today
       errors.add(:purchased_date, "can't be in the future")
