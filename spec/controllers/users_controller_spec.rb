@@ -12,55 +12,85 @@ describe UsersController do
   }
 
   describe "GET 'index'" do
-    it "returns http success" do
+    it "Responds successfully with an HTTP 200 status code" do
       get :index
-      response.should be_success
-    end
 
-    it "returns HTTP 200 status code" do
-      get :index
-      response.status.should be 200
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
     end
   end
 
   describe "GET 'show'" do
     it "Assigns the requested laptop to users(:one)" do
       get :show, id: users(:one).id
-      assigns(:user).should eq users(:one)
+
+      expect(assigns(:user)).to eq users(:one)
     end
   end
 
   describe "POST 'create'" do
-    before(:each) {
-      post :create, user: {first_name: "Sara", last_name: "Mong", email: "sara2@example.com", password: "password3", password_confirmation: "password3", department: "Software"}
-    }
-
-    it "Redirect to user" do
-      response.should redirect_to assigns(:user)
+    it "the number of users is 3 before create" do
+      expect(User.count).to eq 3
     end
 
-    it "Flash notice message is 'Laptop was successfully created.' when Redirect to" do
-      flash[:notice].should include "was successfully created."
+    context "when successfully created" do
+      before(:each) {
+        post :create, user: {first_name: "Sara", last_name: "Mong", email: "sara2@example.com", password: "password3", password_confirmation: "password3", department: "Software"}
+      }
+
+      it "Automatically current_borrowed state updated" do
+        expect(User.last.current_borrowed_laptop).to eq "Not Yet"
+        expect(User.last.current_borrowed_date).to eq "N/A"
+      end
+
+      it "Redirect to user" do
+        expect(response).to redirect_to assigns(:user)
+      end
+
+      it "Flash notice message is 'Laptop was successfully created.' when Redirect to" do
+        expect(flash[:notice]).to include "was successfully created."
+      end
+
+      it "Total number of users is 4 after created" do
+        expect(User.count).to eq 4
+      end
+    end
+
+    it "render new page, when failed to create" do
+      post :create, user: {first_name: "Sara"}
+
+      expect(response).to render_template "new"
     end
   end
 
   describe "POST 'update'" do
-    before(:each) {
-      users(:one).first_name.should eq "John"
-      post :update, id: users(:one).id, user: {first_name: "Mike"}
-      users(:one).reload
-    }
-
-    it "users(:one).first_name changed to Mike" do
-      users(:one).first_name.should eq "Mike"
+    it "users(:one).first_name is John before update" do
+      expect(users(:one).first_name).to eq "John"
     end
 
-    it "Redirect to user" do
-      response.should redirect_to assigns(:user)
+    context "when successfully updated" do
+      before(:each) {
+        post :update, id: users(:one).id, user: {first_name: "Mike"}
+        users(:one).reload
+      }
+
+      it "users(:one).first_name changed to Mike" do
+        expect(users(:one).first_name).to eq "Mike"
+      end
+
+      it "Redirect to user page" do
+        expect(response).to redirect_to assigns(:user)
+      end
+
+      it "Flash notice message is 'Laptop was successfully created.' when Redirect to" do
+        expect(flash[:notice]).to include "was successfully updated."
+      end
     end
 
-    it "Flash notice message is 'Laptop was successfully created.' when Redirect to" do
-      flash[:notice].should include "was successfully updated."
+    it "render edit page when failed to updated" do
+      post :update, id: users(:one).id, user: {first_name: nil}
+
+      expect(response).to render_template "edit"
     end
   end
 
@@ -71,7 +101,8 @@ describe UsersController do
 
     it "Redirect to user" do
       delete :destroy, id: users(:one).id
-      response.should redirect_to ('/')
+
+      expect(response).to redirect_to "/"
     end
   end
 end
