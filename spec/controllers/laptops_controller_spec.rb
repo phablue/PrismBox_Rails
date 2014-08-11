@@ -16,6 +16,7 @@ describe LaptopsController do
   describe "GET 'index'" do
     it "Responds successfully with an HTTP 200 status code" do
       get :index
+
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
@@ -24,6 +25,7 @@ describe LaptopsController do
   describe "GET 'show'" do
     it "Assigns the requested laptop to laptops(:one)" do
       get :show, id: laptops(:one).id
+
       expect(assigns(:laptop)).to eq laptops(:one)
     end
   end
@@ -45,6 +47,7 @@ describe LaptopsController do
 
     it "Responds render new when failed to create" do
       post :create, laptop: {serial_number: "9876", purchased_date: "2014-05-06"}
+
       expect(response).to render_template("new")
     end
   end
@@ -75,6 +78,7 @@ describe LaptopsController do
 
     it "Responds render new when failed to update" do
       post :update, id: laptops(:one).id, laptop: {serial_number: nil}
+
       expect(response).to render_template("edit")
     end
   end
@@ -86,6 +90,7 @@ describe LaptopsController do
 
     it "Responds redirect to laptops_url" do
       delete :destroy, id: laptops(:one).id
+
       expect(response).to redirect_to laptops_url
     end
   end
