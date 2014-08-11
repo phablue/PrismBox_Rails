@@ -3,65 +3,73 @@ require 'rails_helper'
 describe SessionsController do
   fixtures :users
 
+  before(:each) {
+    @user = users(:one)
+  }
+
   describe "POST 'create'" do
-    before(:each) {
-      @user = users(:one)
-    }
+    it "Session[:user_id] is not user email before login" do
+      expect(session[:user_id]).not_to eq @user.email
+    end
 
-    context "If successfully login" do
+    context "when successfully login" do
       it "user email equals session[:user_id]" do
-        @user.email.should_not eq session[:user_id]
-
         post :create, email: @user.email, password: "password1"
 
-        @user.email.should eq session[:user_id]
+        expect(@user.email).to eq session[:user_id]
       end
 
       it "Redirect to order" do
         post :create, email: @user.email, password: "password1"
 
-        response.should redirect_to '/'
+        expect(response).to redirect_to '/'
       end
     end
 
-    context "If failed login" do
+    context "when failed to login" do
       it "session[:user_id] is nil" do
         post :create, email: @user.email, password: "Failed"
 
-        session[:user_id].should be_nil
+        expect(session[:user_id]).to be_nil
       end
 
       it "Redirect to login_url" do
         post :create, email: @user.email, password: "Failed"
 
-        response.should redirect_to login_url
+        expect(response).to redirect_to login_url
       end
 
       it "Alert 'Invalid user/password combination'" do
         post :create, email: @user.email, password: "Failed"
 
-        flash[:alert].should eq "Invalid user/password combination"
+        expect(flash[:alert]).to eq "Invalid user/password combination"
       end
     end
   end
 
   describe "DELETE 'destroy'" do
     before(:each) {
-      post :create, email: users(:one).email, password: "password1"
+      post :create, email: @user.email, password: "password1"
     }
 
-    it "session[:user_id] id nil" do
-      session[:user_id].should_not be_nil
-
-      delete :destroy
-
-      session[:user_id].should be_nil
+    it "Session[:user_id] is user email before logout" do
+      expect(session[:user_id]).not_to be_nil
+      expect(session[:user_id]).to eq @user.email
     end
 
-    it "Redirect to user" do
-      delete :destroy
+    context "when successfully logout" do
+      it "session[:user_id] id nil" do
+        delete :destroy
 
-      response.should redirect_to '/'
+        expect(session[:user_id]).to be_nil
+        expect(session[:user_id]).not_to eq @user.email
+      end
+
+      it "Redirect to user" do
+        delete :destroy
+
+        expect(response).to redirect_to '/'
+      end
     end
   end
 end
