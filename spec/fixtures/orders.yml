@@ -1,9 +1,15 @@
 one:
-  full_name: John
+  user_id: 135138680
+  laptop_id: 980190962
+  full_name: John Coke
   email: john@example.com
-  laptop_serial_number: macair1234
+  laptop_serial_number: "1234"
+  order_status: PROCESSING
 
 two:
-  full_name: Lisa
-  email: lisa@example.com
-  laptop_serial_number: macpro5678
+  user_id: two
+  laptop_id: two
+  full_name: Mary Blood
+  email: mary@example.com
+  laptop_serial_number: "5678"
+  order_status: PROCESSING

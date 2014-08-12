@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_parameter)
+    @user.attributes = {current_borrowed_laptop: "Not Yet", current_borrowed_date: "N/A"}
     if @user.save
       session[:user_id] = @user.email
-      update_current_borrowed_state(@user)
       redirect_to @user, notice: notice_message("#{@user.first_name} #{@user.last_name}", "created")
     else
       render "new"
@@ -49,11 +49,7 @@ class UsersController < ApplicationController
   end
 
   def user_parameter
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :department)
-  end
-
-  def update_current_borrowed_state (user)
-    user.update_attributes(current_borrowed_laptop: "Not Yet", current_borrowed_date: "N/A")
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :department, :current_borrowed_laptop, :current_borrowed_date)
   end
 
   def notice_message (user_name, action)

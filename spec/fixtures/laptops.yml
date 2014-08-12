@@ -8,7 +8,7 @@ one:
   ram: Big
   screen_size: 55"
   purchased_date: 05/05/2014
-  state: Lended
+  state: STOCKS
 
 two:
   serial_number: "5678"
@@ -18,4 +18,4 @@ two:
   ram: Small
   screen_size: 50"
   purchased_date: 01/01/2001
-  state: Stocked
+  state: STOCKS
