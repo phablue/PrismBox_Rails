@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :admin_authorize, except:[:show, :new, :create]
   before_action :get_order, only:[:show, :edit, :update, :destroy, :get_session_laptop_id]
   before_action :get_session_laptop_id, only:[:edit, :update, :destroy]
+  before_action :check_available_rental, :check_available_laptop_state, only:[:create]
 
   def index
    if params[:state] == "all" || params[:state].nil?
@@ -78,6 +79,18 @@ class OrdersController < ApplicationController
 
   def order_parameter
     params.require(:order).permit(:full_name, :email, :laptop_serial_number, :order_status)
+  end
+
+  def check_available_rental
+    unless current_user.current_borrowed_laptop == "Not Yet"
+      redirect_to "/", notice: "You can't borrow before returning a laptop borrowed"
+    end
+  end
+
+  def check_available_laptop_state
+    unless session[:laptop_id].state == "STOCKS"
+      redirect_to({controller:'catalog', action:'index'}, notice: "Chosen laptop is already #{session[:laptop_id].state.downcase}")
+    end    
   end
 
   def change_laptop_status statement
