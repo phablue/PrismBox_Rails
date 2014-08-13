@@ -66,6 +66,7 @@ class OrdersController < ApplicationController
   end
 
   def cancel_order url
+    @order.destroy
     change_laptop_status("STOCKS")
     change_user_rent_status(User.find(@order.user_id), "Not Yet", "N/A")
     redirect_to url, notice: "Order was successfully canceled"
@@ -113,6 +114,9 @@ class OrdersController < ApplicationController
     if statement == "CONFIRMED"
       change_laptop_status("RENTED")
       change_user_rent_status(User.find(order.laptop_id), order.laptop_serial_number, order.updated_at.to_date)
+    elsif statement == "RETURNED"
+      change_laptop_status("STOCKS")
+      change_user_rent_status(User.find(order.laptop_id), "Not Yet", "N/A")      
     else
       change_laptop_status("RESERVED")
       change_user_rent_status(User.find(order.laptop_id), "REQUEST", "REQUEST")
