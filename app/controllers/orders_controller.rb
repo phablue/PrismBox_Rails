@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :admin_authorize, except:[:show, :new, :create, :destroy]
-  before_action :get_order, only:[:show, :edit, :update, :destroy, :get_session_laptop_id]
-  before_action :get_session_laptop_id, only:[:edit, :update, :destroy]
+  before_action :get_order, only:[:show, :edit, :update, :destroy]
+  before_action :get_session_laptop_id, only:[:update, :destroy]
   before_action :check_available_rental, :check_available_laptop_state, only:[:create]
 
   def index
@@ -21,11 +21,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_parameter)
-    puts current_user
     @order.attributes = {laptop_id: session[:laptop_id].id, user_id: current_user.id, order_status: "PROCESSING"}
     if @order.save
       change_laptop_status("RESERVED")
-      change_user_rent_status("REQUEST", "REQUEST")
+      change_user_rent_status(current_user, "REQUEST", "REQUEST")
       redirect_to @order, notice: 'Successfully ordered.'
     else
       render "new"
@@ -67,9 +66,8 @@ class OrdersController < ApplicationController
   end
 
   def cancel_order url
-    @order.destroy
     change_laptop_status("STOCKS")
-    change_user_rent_status("Not Yet", "N/A")
+    change_user_rent_status(User.find(@order.user_id), "Not Yet", "N/A")
     redirect_to url, notice: "Order was successfully canceled"
   end
 
@@ -107,18 +105,17 @@ class OrdersController < ApplicationController
     session[:laptop_id] = nil
   end
 
-  def change_user_rent_status laptop, date
-    # puts current_user.id# User.find_by_email(session[:user_id]) 
-    current_user.update_attributes(current_borrowed_laptop: laptop, current_borrowed_date: date)
+  def change_user_rent_status user, laptop, date
+    user.update_attributes(current_borrowed_laptop: laptop, current_borrowed_date: date)
   end
 
   def change_others_status statement, order
     if statement == "CONFIRMED"
       change_laptop_status("RENTED")
-      change_user_rent_status(order.laptop_serial_number, order.updated_at.to_date)
+      change_user_rent_status(User.find(order.laptop_id), order.laptop_serial_number, order.updated_at.to_date)
     else
       change_laptop_status("RESERVED")
-      change_user_rent_status("REQUEST", "REQUEST")
+      change_user_rent_status(User.find(order.laptop_id), "REQUEST", "REQUEST")
     end
   end
 end

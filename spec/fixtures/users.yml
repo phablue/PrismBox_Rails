@@ -22,5 +22,5 @@ admin:
   email: testadmin@example.com
   password_digest: password3
   department: Software
-  current_borrowed_laptop:
-  current_borrowed_date:
+  current_borrowed_laptop: "Not Yet"
+  current_borrowed_date: "N/A"
