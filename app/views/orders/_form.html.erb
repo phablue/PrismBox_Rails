@@ -15,11 +15,11 @@
     <div class="form-group">
       <label class="col-sm-3 control-label">FULL NAME</label>
       <div class="col-sm-5">
-        <%= f.text_field :full_name, value: current_user_full_name, class: "form-control", readonly: true %>
+        <%= f.text_field :full_name, value: full_name_of(consumer_user(@order)), class: "form-control", readonly: true %>
       </div><br>
       <label class="col-sm-3 control-label">EMAIL</label>
       <div class="col-sm-5">
-        <%= f.text_field :email, value: current_user.email, class: "form-control", readonly: true %>
+        <%= f.text_field :email, value: consumer_user(@order).email, class: "form-control", readonly: true %>
       </div><br>
       <label class="col-sm-3 control-label">RENT LAPTOP SERIAL NUMBER</label>
       <div class="col-sm-5">
