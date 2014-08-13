@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_parameter)
-    @order.attributes = {laptop_id: session[:laptop_id].id, user_id: current_user.id}
+    @order.attributes = {laptop_id: session[:laptop_id].id, user_id: current_user.id, order_status: "PROCESSING"}
     if @order.save
       change_laptop_status("RESERVED")
       change_user_rent_status("REQUEST", "REQUEST")
