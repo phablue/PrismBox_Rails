@@ -8,6 +8,7 @@
           <th>FULL NAME</th>
           <th>EMAIL</th>
           <th>LAPTOP SERIAL NUMBER</th>
+          <th>ORDER CREATE DATE</th>
           <th>ORDER STATEMENT</th>
           <th></th>
           <th></th>
@@ -21,6 +22,7 @@
           <td><%= order.full_name %></td>
           <td><%= order.email %></td>
           <td><%= order.laptop_serial_number %></td>
+          <td><%= order.created_at.to_date %></td>
           <td><%= order.order_status %></td>
           <td><%= link_to "SHOW", order_path(order) %></td>
           <td><%= link_to "EDIT", edit_order_path(order) %></td>

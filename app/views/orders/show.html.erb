@@ -20,7 +20,7 @@
     </div><br>
     <% if current_user.admin %>
       <div class="buttons">
-        <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %> 
+        <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %>
         <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
       </div><br>
       <%= link_to "Back to List", orders_url , class: "btn btn-primary"%>
