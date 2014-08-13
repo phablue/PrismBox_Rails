@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="starter-template">
+    <h1><%= "#{current_user.first_name.upcase} #{@orders_type.capitalize}" %> Orders</h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>LAPTOP MODEL</th>
+          <th>LAPTOP SERIAL NUMBER</th>
+          <th>BORROWED DATE</th>
+          <th>RETURN DATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td></td>
+          <td><%= Laptop.find(order.laptop_id).model_ %></td>
+          <td><%= order.laptop_serial_number %></td>
+          <td><%= order.updated_at.to_date %></td>
+          <td><%=  %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to "Home", "/" , class: "btn btn-primary"%>
+</div>

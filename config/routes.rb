@@ -1,6 +1,11 @@
 Prismbox::Application.routes.draw do
   resources :laptops
   resources :users
+
+  controller :users do
+    get "order_history", to: :order_history
+  end
+
   resources :orders
 
   controller :orders do

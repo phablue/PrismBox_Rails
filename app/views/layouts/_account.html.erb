@@ -9,8 +9,8 @@
       <li><%= link_to "Cancel Account", current_user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."} %></li>
       <li class="divider"></li>
       <li class="dropdown-header">Your Orders</li>
-      <li><a href="#">Recent Order</a></li>
-      <li><a href="#">Order History</a></li>
+      <li><%= link_to "Open Order", {action: "order_history", controller: "users", type: "open"} %></li>
+      <li><%= link_to "Order History", {action: "order_history", controller: "users", type: "all"} %></li>
     </ul>
   </div>
 </div>

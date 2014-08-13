@@ -42,6 +42,19 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  def order_history
+    @orders_type = params[:type]
+    @orders = orders_by(@orders_type)
+  end
+
+  def orders_by type
+    if type == "all"
+      Order.where(user_id: current_user.id)
+    else
+      Order.where(user_id: current_user.id, order_status: "PROCESSING")
+    end
+  end
+
   private
 
   def get_user
