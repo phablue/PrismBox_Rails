@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :admin_authorize, except:[:show, :new, :create]
+  before_action :admin_authorize, except:[:show, :new, :create, :cancel_order]
   before_action :get_order, only:[:show, :edit, :update, :destroy, :get_session_laptop_id]
   before_action :get_session_laptop_id, only:[:edit, :update, :destroy]
   before_action :check_available_rental, :check_available_laptop_state, only:[:create]
@@ -54,14 +54,22 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    unless current_user.admin
+      if @order.order_status == "CONFIRMED"
+        redirect_to "/", notice: "You can't cancel a order confirmed."
+      else
+        cancel_order("/")
+      end
+    else
+      cancel_order(orders_url)
+    end
+  end
+
+  def cancel_order url
     @order.destroy
     change_laptop_status("STOCKS")
     change_user_rent_status("Not Yet", "N/A")
-    if current_user.admin
-      redirect_to orders_url
-    else
-      redirect_to "/"
-    end
+    redirect_to url, notice: "Order was successfully canceled"
   end
 
   private

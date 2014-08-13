@@ -9,6 +9,8 @@
           <th>LAPTOP SERIAL NUMBER</th>
           <th>BORROWED DATE</th>
           <th>RETURN DATE</th>
+          <th><th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +21,12 @@
           <td><%= order.laptop_serial_number %></td>
           <td><%= order.updated_at.to_date %></td>
           <td><%=  %></td>
+          <td><%=  %></td>
+          <td>
+          <% if order.order_status == "PROCESSING"  %>
+            <%=link_to "CANCEL", order, method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>

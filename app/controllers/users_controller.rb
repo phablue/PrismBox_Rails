@@ -63,9 +63,9 @@ class UsersController < ApplicationController
 
   def orders_by type
     if type == "all"
-      Order.where(user_id: current_user.id)
+      Order.where(user_id: current_user.id).order("updated_at DESC")
     else
-      Order.where(user_id: current_user.id, order_status: "PROCESSING")
+      Order.where(user_id: current_user.id, order_status: "PROCESSING").order("updated_at DESC")
     end
   end
 end
