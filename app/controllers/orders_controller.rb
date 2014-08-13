@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_parameter)
+    puts current_user
     @order.attributes = {laptop_id: session[:laptop_id].id, user_id: current_user.id, order_status: "PROCESSING"}
     if @order.save
       change_laptop_status("RESERVED")
@@ -107,6 +108,7 @@ class OrdersController < ApplicationController
   end
 
   def change_user_rent_status laptop, date
+    # puts current_user.id# User.find_by_email(session[:user_id]) 
     current_user.update_attributes(current_borrowed_laptop: laptop, current_borrowed_date: date)
   end
 

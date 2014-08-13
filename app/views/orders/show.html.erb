@@ -4,7 +4,7 @@
         <p class = "alert alert-success"><%= notice %></p> 
     <% end %>
     <div class="page-header">
-      <h1><%= @order.id%> Detail</h1>
+      <h1> Order Detail</h1>
     </div>
     <div class="form-group"><br>
       <label class="col-sm-3">FULL NAME</label>
@@ -18,11 +18,11 @@
         <div class="col-sm-5"><%= @order.order_status %></div><br>
       <% end %>
     </div><br>
-    <div class="buttons">
-      <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %> 
-      <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
-    </div><br>
     <% if current_user.admin %>
+      <div class="buttons">
+        <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %> 
+        <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+      </div><br>
       <%= link_to "Back to List", orders_url , class: "btn btn-primary"%>
     <% else %>
       <%= link_to "Home", "/" , class: "btn btn-primary"%>
