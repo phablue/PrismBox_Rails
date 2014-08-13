@@ -47,14 +47,6 @@ class UsersController < ApplicationController
     @orders = orders_by(@orders_type)
   end
 
-  def orders_by type
-    if type == "all"
-      Order.where(user_id: current_user.id)
-    else
-      Order.where(user_id: current_user.id, order_status: "PROCESSING")
-    end
-  end
-
   private
 
   def get_user
@@ -67,5 +59,13 @@ class UsersController < ApplicationController
 
   def notice_message (user_name, action)
     "#{user_name} was successfully #{action}."
+  end
+
+  def orders_by type
+    if type == "all"
+      Order.where(user_id: current_user.id)
+    else
+      Order.where(user_id: current_user.id, order_status: "PROCESSING")
+    end
   end
 end
