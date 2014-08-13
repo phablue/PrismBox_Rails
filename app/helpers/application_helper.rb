@@ -5,12 +5,9 @@ module ApplicationHelper
 
   def title_url_by_user
     if current_user.nil?
-      return "/"
-    else
-      if current_user.admin
-        return admin_url
-      end
       "/"
+    elsif current_user.admin
+      admin_url
     end
   end
 end
