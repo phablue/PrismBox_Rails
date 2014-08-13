@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :admin_authorize, except:[:show, :new, :create, :destroy]
   before_action :get_order, only:[:show, :edit, :update, :destroy]
-  before_action :get_session_laptop_id, only:[:update, :destroy]
+  before_action :get_session_laptop_id, only:[:edit, :update, :destroy]
   before_action :check_available_rental, :check_available_laptop_state, only:[:create]
 
   def index
