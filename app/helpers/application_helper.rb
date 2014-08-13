@@ -8,6 +8,8 @@ module ApplicationHelper
       "/"
     elsif current_user.admin
       admin_url
+    else
+      "/"
     end
   end
 end
