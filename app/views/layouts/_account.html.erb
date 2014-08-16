@@ -1,16 +1,16 @@
-<div class="greeting">
-  <div class="dropdown">
-    <%= link_to title_url_by_user, class: "dropdown-toggle" do %>
-      <p>HELLO, <%= current_user.first_name.upcase %><br>Your Account<b class="caret"></b></p>
-    <% end %>
-    <ul class="dropdown-menu">
-      <li class="dropdown-header">Settings</li>
-      <li><%= link_to "Change Account Setting", edit_user_path(current_user) %></li>
-      <li><%= link_to "Cancel Account", current_user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."} %></li>
-      <li class="divider"></li>
-      <li class="dropdown-header">Your Orders</li>
-      <li><%= link_to "Open Order", {action: "order_history", controller: "users", type: "open"} %></li>
-      <li><%= link_to "Order History", {action: "order_history", controller: "users", type: "all"} %></li>
-    </ul>
-  </div>
+<div class="nav-your-account">
+  <%= link_to title_url_by_user, class: "nav-signin-title" do %>
+    <p>HELLO, <%= current_user.first_name.upcase %><br>Your Account <b class="caret"></b></p>
+  <% end %>
+  <ul class="nav-account-dropdown-menu">
+    <li class="nav-account-dropdown-header">Settings</li>
+    <li><%= link_to "Change Account Setting", edit_user_path(current_user), class: "nav-account-dropdown-link" %></li>
+    <li><%= link_to "Cancel Account", current_user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "nav-account-dropdown-link" %></li>
+    <li class="nav-account-dropdown-divider"></li>
+    <li class="nav-account-dropdown-header">Your Orders</li>
+    <li><%= link_to "Open Order", {action: "order_history", controller: "users", type: "open"}, class: "nav-account-dropdown-link" %></li>
+    <li><%= link_to "Order History", {action: "order_history", controller: "users", type: "all"}, class: "nav-account-dropdown-link" %></li>
+    <li class="nav-account-dropdown-divider"></li>
+    <li><%= link_to "Log Out", logout_url, method: :delete , class: "nav-account-dropdown-logout" %></li>
+  </ul>
 </div>

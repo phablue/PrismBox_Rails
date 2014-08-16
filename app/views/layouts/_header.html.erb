@@ -1,9 +1,7 @@
-<div class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Prism Box", title_url_by_user , class: "navbar-brand"%>
-    </div>
-    <%= render "layouts/login" %>
-    <%= render "layouts/logout" %>
+<div class="navbar" role="navigation">
+  <div class="nav-logo">
+    <%= link_to "PrismBox", title_url_by_user , class: "nav-logo-link"%>
   </div>
+  <%= render "layouts/login" %>
+  <%= render "layouts/logout" %>
 </div>

@@ -1,6 +1,6 @@
 <% unless session[:user_id].nil? %>
+  <%= render "layouts/account" %>
   <div class="logout">
-    <%= render "layouts/account" %>
-    <%= link_to "LOG OUT", logout_url, method: :delete , class: "btn btn-primary" %>
+    <%= link_to "LOG OUT", logout_url, method: :delete , class: "logout_btn" %>
   </div>
 <% end %>

@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+body {
+  background-image: url("textured_paper.png");
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+div {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
