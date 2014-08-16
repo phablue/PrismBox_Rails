@@ -2,8 +2,8 @@ class DropDownMenu
   constructor: ->
 
   dropdownMenu: ->
-    @mouseToggle ".dropdown-toggle"
-    @mouseToggle ".dropdown-menu"
+    @mouseToggle ".nav-signin-title"
+    @mouseToggle ".nav-account-dropdown-menu"
 
   mouseToggle: (element) ->
     this.mouseOver element
@@ -11,13 +11,13 @@ class DropDownMenu
 
   mouseOver: (element) ->
     $(element).mouseover( =>
-      @toggleClass "dropdown", "dropdown open" )
+      @toggleClass "nav-account-dropdown-menu", "nav-account-dropdown-menu open" )
 
   mouseLeave: (element) ->
     $(element).mouseleave( =>
-      @toggleClass "dropdown open", "dropdown" )
+      @toggleClass "nav-account-dropdown-menu open", "nav-account-dropdown-menu" )
 
   toggleClass: (remove, add) ->
-    $(".dropdown").removeClass(remove).addClass(add)
+    $(".nav-account-dropdown-menu").removeClass(remove).addClass(add)
 
 window.DropDownMenu = DropDownMenu
