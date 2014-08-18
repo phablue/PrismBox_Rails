@@ -1,12 +1,12 @@
 .nav-your-account {
   font-size: 16px;
   font-weight: bolder;
-  position: fixed;
-  right: 9%;
+  position: relative;
+  left: 77%;
 }
 
 .nav-signin-title {
-  color: #FFFFFF;
+  color: #504375;
 }
 
 .caret {
@@ -26,6 +26,7 @@
   color: #999;
   display: none;
   height: 190px;
+  min-height: 190px;
   list-style-type: none;
   padding: 10px;
   position: fixed;
@@ -76,21 +77,26 @@ li, .nav-account-dropdown-menu {
 }
 
 .nav-account-login {
-  min-width: 35%;
-  position: fixed;
-  right: 7.5%;
-  top: 2%;
+  display: block;
+  left: 52%;
+  margin-top: 20px;
+  padding: 2px;
+  position: relative;
 }
 
 .nav-account-id {
+  background-color: white;
   font-size: 13px;
   margin-right: 12px;
-  width: 45%
+  min-width: 20%;
+  width: 10%;
 }
 
 .nav-account-pw {
+  background-color: white;
   font-size: 13px;
-  width: 45%
+  min-width: 15%;
+  width: 8%;
 }
 
 .header_btn {
@@ -98,8 +104,8 @@ li, .nav-account-dropdown-menu {
   border: 1px inset #357ebd;
   border-radius: 3px;
   color: #fff;
-  position: fixed;
-  right: 2%;
+  letter-spacing: 1.5px;
+  margin-left: 25px;
   text-align: center;
 }
 
@@ -108,7 +114,7 @@ li, .nav-account-dropdown-menu {
   padding: 3px;
   padding-left: 10px;
   padding-right: 10px;
-  top: 2%;
+  top: 22px;
 }
 
 .logout {
@@ -116,17 +122,20 @@ li, .nav-account-dropdown-menu {
   padding: 6px;
   padding-left: 10px;
   padding-right: 10px;
-  top: 20px;
+  position: absolute;
+  right: 3%;
+  top: 10px;
 }
 
 .nav-new-account {
-  color: #FFFFFF;
+  color: #632F53;
   font-size: 13px;
+  min-width: 15%;
   position: absolute;
-  right: 27%;
-  top: 28px;
+  left: 53%;
+  top: 36px;
 }
 
 .nav-new-account a {
-  color: #B0254F;
+  color: #B03851;
 }

@@ -1,12 +1,11 @@
 <% if notice %>
-    <p class = "alert alert-danger"><%= notice %></p>
+  <p class = "alert alert-danger"><%= notice %></p>
 <% end %>
-<div class="jumbotron">
-  <h1>Welcome! 8th Light</h1>
-  <p>Please Log in</p>
-  <p>
-    <% unless session[:user_id].nil? %>
-      <%= link_to "View Laptops List", catalog_index_path, class: "btn btn-lg btn-primary"%>
-    <% end %>
-  </p>
-</div>
+<%= image_tag "home/MainImage.jpg", class: "home-image"%>
+<h1 class="home-msg welcome">
+  Welcome, 8th Light<br>
+  Rent a laptop on the prismBox.
+</h1>
+<% unless session[:user_id].nil? %>
+  <%= link_to "Rent Laptop", catalog_index_path, class: "home-catalog-btn"%>
+<% end %>

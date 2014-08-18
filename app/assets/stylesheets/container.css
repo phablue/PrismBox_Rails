@@ -1,0 +1,45 @@
+.container {
+  min-width: 50%;
+  left: 0px;
+  position: absolute;
+  top: 80px;
+  width: 100%;
+}
+
+.home-image {
+  height: 450px;
+  min-height: 450px;
+  min-width: 50%;
+  width: 100%;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+
+.home-msg {
+  color: #424254;
+  left: 5%;
+  letter-spacing: 1px;
+  padding: 5px;
+  position: absolute;
+  top: 15%;
+}
+
+.welcome {
+  font-size: 38px;
+  text-shadow: 2.5px 2px #F6F6FA;
+}
+
+.home-catalog-btn {
+  background-color: #F6F6FA;
+  border: 2px inset #424254;
+  border-radius: 4px;
+  color: #424254;
+  font-size: 18px;
+  font-weight: bolder;
+  left: 5.5%;
+  letter-spacing: 1.5px;
+  padding: 12px;
+  position: absolute;
+  text-align: center;
+  top: 47%;
+}
