@@ -1,12 +1,8 @@
 <% if session[:user_id].nil? %>
-  <%= form_tag login_url, class: "navbar-form navbar-right" do %>
-    <div class="form-group">
-      <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= password_field_tag :password, params[:password], placeholder: "password", class: "form-control" %>
-    </div>
-    <%= submit_tag "Sign in", class: "btn btn-primary" %>
+  <%= form_tag login_url, class: "nav-account-login" do %>
+    <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "nav-account-id" %>
+    <%= password_field_tag :password, params[:password], placeholder: "PASSWORD", class: "nav-account-pw" %>
+    <%= submit_tag "Login", class: "header_btn login" %>
   <% end %>
-  <h5 class="make_account navbar-right">New to PrismBox? <%= link_to "Here", new_user_path %> </h5>
+  <h5 class="nav-new-account">New to PrismBox? <%= link_to "Start Here", new_user_path %> </h5>
 <% end %>
