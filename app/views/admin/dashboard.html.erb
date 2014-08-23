@@ -1,15 +1,8 @@
-<div class="container">
-  <% if notice %>
+<% if notice %>
   <p class="alert alert-success"><%= notice %></p> 
-  <% end %>
-  <div class="row row-offcanvas row-offcanvas-right">
-    <div class="col-xs-12 col-sm-9">
-      <div class="page-header">
-        <h2> It's <%= Time.zone.now %> </h2>
-      </div>
-      <div class='row'>
-        <%= render "sidebar" %>
-        <%= render "main" %>
-      </div>
-    </div>
-  </div>
+<% end %>
+<div class="admin-page">
+  <%= image_tag "admin.jpg", class: "admin-page-image"%>
+  <%= render "sidebar" %>
+  <%= render "main" %>
+</div>

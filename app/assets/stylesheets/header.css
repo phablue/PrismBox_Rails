@@ -1,4 +1,5 @@
 .navbar {
+  border-bottom: 2px inset #F6F6FA;
   left: 0;
   height: 80px;
   min-height: 80px;
@@ -16,7 +17,8 @@
 }
 
 .nav-logo-link {
-  color: #504375;
+  color: #F6F6FA;
   font-size: 50px;
   font-weight: bolder;
+  text-shadow: 3px 3px #0B2E59;
 }

@@ -12,7 +12,7 @@
  *= require_tree .
  */
 body {
-  background-image: url("light-toast.png");
+  background-image: url("light_toast.png");
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   min-width: 70%;
   width: 100%;
