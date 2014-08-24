@@ -30,3 +30,42 @@ input {
   line-height: 1.5;
   padding: 3px;
 }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border-spacing: 2px;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 30px;
+  padding: 6px;
+  text-align: left;
+  vertical-align: center;
+}
+
+th, td {
+  border-bottom: 1.5px solid #BCBCBC;
+}
+
+th {
+  font-weight: bolder;
+}
+
+.container {
+  left: 0px;
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  min-width: 50%;
+  height: 90%;
+}
+
+.btn {
+  border: 1.5px inset #357ebd;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  padding: 6px;
+  text-align: center;
+}

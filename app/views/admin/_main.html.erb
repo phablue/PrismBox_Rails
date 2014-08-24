@@ -1,8 +1,10 @@
 <div class="main">
   <h3><strong><%= new_orders.length %></strong> new orders need to confirm.</h3>
-  <% if new_orders.nil? %>
-    <h1 class="main header">New Orders</h1>
-    <%= render "new_orders_table" %>
-    <%= link_to "Confirm All", confirm_all_url, data: {confirm: "Do you want to confirm all new orders?"}, class: "btn btn-info" %>
+  <% unless new_orders.nil? %>
+    <div class="main-table">
+      <h1 class="main-header">New Orders</h1>
+      <%= render "new_orders_table" %>
+      <%= link_to "Confirm All", confirm_all_url, data: {confirm: "Do you want to confirm all new orders?"}, class: "btn confirm_all" %>
+    </div>
   <% end %>
 </div>

@@ -1,0 +1,84 @@
+.admin-page-image {
+  height: 700px;
+  min-width: 50%;
+  position: fixed;
+  top: 0px; 
+  width: 100%;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.nav-sidebar {
+  border-right: 3px inset #F6F6FA;
+  height: 600px;
+  padding: 10px;
+  position: fixed;
+  top: 80px;
+}
+
+.nav-sidebar ul, .nav-sidebar li {
+  list-style: none;
+  padding: 6px;
+}
+
+.nav-sidebar a {
+  color: #F6F6FA;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  padding: 15px;
+  text-shadow: 2px 2px #0B2E59;
+}
+
+.nav-sidebar a:hover {
+  color: #C5E0DC;
+}
+
+.active {
+  color: #0B2E59;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+  padding-right: 20px;
+  text-shadow: 1px 1px #E8F3F8;
+}
+
+.main {
+  height: 600px;
+  margin-left: 300px;
+  margin-right: 10px;
+  position: relative;
+  width: 79%;
+}
+
+.main h3 {
+  color: #0B2E59;
+  font-size: 25px;
+  padding: 3px;
+  text-shadow: 2px 2px #E8F3F8;
+}
+
+.main strong {
+  color: #F6F6FA;
+  font-size: 30px;
+  text-shadow: 1.5px 1.5px #0B2E59;
+}
+
+.main-table {
+  background-image: url("handmadepaper.png");
+  padding: 5px;
+  height: 510px;
+}
+
+.main-header {
+  color: #424242;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.confirm_all {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+}

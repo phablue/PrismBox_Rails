@@ -1,7 +1,7 @@
 .nav-your-account {
-  font-size: 16px;
   font-weight: bolder;
   position: absolute;
+  margin: none;
   right: 170px;
   top: 10px;
 }
@@ -31,7 +31,7 @@
   list-style-type: none;
   padding: 10px;
   position: fixed;
-  top: 65px;
+  top: 62px;
 }
 
 .open{
