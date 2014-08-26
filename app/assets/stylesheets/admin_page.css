@@ -4,8 +4,8 @@
   position: fixed;
   top: 0px; 
   width: 100%;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 
 .nav-sidebar {
@@ -14,6 +14,7 @@
   padding: 10px;
   position: fixed;
   top: 80px;
+  width: 21%
 }
 
 .nav-sidebar ul, .nav-sidebar li {
@@ -45,10 +46,10 @@
 
 .main {
   height: 600px;
-  margin-left: 300px;
-  margin-right: 10px;
+  max-width: 75%;
   position: relative;
-  width: 79%;
+  left: 24%;
+  width: 75%;
 }
 
 .main h3 {

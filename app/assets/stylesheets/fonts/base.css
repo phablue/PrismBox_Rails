@@ -1,0 +1,63 @@
+body {
+  background-image: url("light_toast.png");
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-width: 70%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border: 2px inset #e5e5e5;
+  border-radius: 4px;
+  color: #555;
+  font-family: inherit;
+  line-height: 1.5;
+  padding: 3px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border-spacing: 2px;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 30px;
+  padding: 6px;
+  text-align: left;
+  vertical-align: center;
+}
+
+th, td {
+  border-bottom: 1.5px solid #BCBCBC;
+}
+
+th {
+  font-weight: bolder;
+}
+
+.container {
+  left: 0px;
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  min-width: 50%;
+  height: 90%;
+}
+
+.btn {
+  border: 1.5px inset #357ebd;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  padding: 6px;
+  text-align: center;
+}
+
+.table-striped tr:nth-child(odd) {
+  background-image: url("paper_3.png"); 
+}
