@@ -1,49 +1,47 @@
-<div class="container">
-  <div class="starter-template">
-    <h1>LAPTOPS LIST</h1>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>SERIAL NUMBER</th>
-          <th>MODEL</th>
-          <th>HDD SIZE</th>
-          <th>CPU SPEED</th>
-          <th>RAM</th>
-          <th>SCREEN SIZE</th>
-          <th>PURCHASED DATE</th>
-          <th>CURRENT STATE</th>
+<div class="contents">
+  <h1>LAPTOPS LIST</h1>
+  <table class="table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>SERIAL NUMBER</th>
+        <th>MODEL</th>
+        <th>HDD SIZE</th>
+        <th>CPU SPEED</th>
+        <th>RAM</th>
+        <th>SCREEN SIZE</th>
+        <th>PURCHASED DATE</th>
+        <th>CURRENT STATE</th>
+        <th></th>
+        <% if current_user.admin %>
           <th></th>
-          <% if current_user.admin %>
-            <th></th>
-            <th></th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% @laptops.each do |laptop| %>
-        <tr>
-          <td></td>
-          <td><%= laptop.serial_number %></td>
-          <td><%= laptop.model_ %></td>
-          <td><%= laptop.hdd_size %></td>
-          <td><%= laptop.cpu_speed %></td>
-          <td><%= laptop.ram %></td>
-          <td><%= laptop.screen_size %></td>
-          <td><%= laptop.purchased_date %></td>
-          <td><%= laptop.state %></td>
-          <td><%= link_to "SHOW", laptop_path(laptop) %></td>
-          <% if current_user.admin %>
-            <td><%= link_to "EDIT", edit_laptop_path(laptop) %></td>
-            <td><%= link_to "DELETE", laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
-          <% end %>
-        </tr>
+          <th></th>
         <% end %>
-      </tbody>
-    </table>
-    <% if current_user.admin %>
-      <%= link_to "New Laptop", new_laptop_path , class: "btn btn-primary"%><br><br>
-      <%= link_to "Home", admin_url , class: "btn btn-primary"%>
-    <% end %>
-  </div>
+      </tr>
+    </thead>
+    <tbody>
+      <% @laptops.each do |laptop| %>
+      <tr>
+        <td></td>
+        <td><%= laptop.serial_number %></td>
+        <td><%= laptop.model_ %></td>
+        <td><%= laptop.hdd_size %></td>
+        <td><%= laptop.cpu_speed %></td>
+        <td><%= laptop.ram %></td>
+        <td><%= laptop.screen_size %></td>
+        <td><%= laptop.purchased_date %></td>
+        <td><%= laptop.state %></td>
+        <td><%= link_to "SHOW", laptop_path(laptop) %></td>
+        <% if current_user.admin %>
+          <td><%= link_to "EDIT", edit_laptop_path(laptop) %></td>
+          <td><%= link_to "DELETE", laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if current_user.admin %>
+    <%= link_to "New Laptop", new_laptop_path , class: "btn btn-primary"%><br><br>
+    <%= link_to "Home", admin_url , class: "btn btn-primary"%>
+  <% end %>
 </div>

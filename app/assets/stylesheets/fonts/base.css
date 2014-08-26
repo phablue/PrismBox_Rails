@@ -5,6 +5,10 @@ body {
   width: 100%;
 }
 
+h1 {
+  color: #0B2E59;
+}
+
 a {
   text-decoration: none;
 }
@@ -41,6 +45,14 @@ th {
   font-weight: bolder;
 }
 
+.table-hover tbody tr:hover {
+  background-color: #EDEDF2;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-image: url("paper_3.png"); 
+}
+
 .container {
   left: 0px;
   position: fixed;
@@ -56,8 +68,4 @@ th {
   letter-spacing: 1px;
   padding: 6px;
   text-align: center;
-}
-
-.table-striped tr:nth-child(odd) {
-  background-image: url("paper_3.png"); 
 }
