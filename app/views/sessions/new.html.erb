@@ -11,13 +11,9 @@
       <%= label_tag :email, 'What is your email?', class: "signin-label"%>
       <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "signin-input" %>
       <%= label_tag :password, 'What is your password?', class: "signin-label"%>
-      <%= password_field_tag :password, params[:password], placeholder: "password", class: "signin-input" %>
+      <%= password_field_tag :password, params[:password], placeholder: "PASSWORD", class: "signin-input" %>
       <h5>New to PrismBox? <%= link_to 'Click here', new_user_path %> </h5>
-      <div class="form-group-action">
-        <div class="form-actions">
-          <%= submit_tag "Login", class: "btn btn-lg btn-primary btn-block" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <%= submit_tag "Login", class: "btn btn-primary signin" %>
+    </div>
+  <% end %>
 </div>

@@ -5,20 +5,54 @@
 }
 
 .form-signin-container {
+  background-color: #FFFFFF;
   font-size: 15px;
+  height: 300px;
+  position: relative;
+  padding: 10px;
   margin: auto;
+  top: 20px;
   width: 50%;
+}
+
+.form-signin-container h5 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding-left: 15px;
+  color: #343838;
+}
+
+.form-signin-container a {
+  color: #CE4745;
+}
+
+.form-signin-container a:hover {
+  text-shadow: 0.8px 0.8px #E2A9A1;
 }
 
 .signin-title {
   letter-spacing: 1.2px;
-  padding-top: 50px;
+  color: #343838;
 }
 
 .signin-label {
+  color: #6C7068;
+  font-size: 15px;
   width: 40%;
 }
 
 .signin-input {
+  font-size: 15px;
+  padding: 2px;
   width: 50%;
+}
+
+.signin {
+  display: block;
+  font-size: 14px;
+  margin-left: 15px;
+  position: absolute;
+  top: 180px;
+  left: 46%;
+  width: 45%;
 }

@@ -26,6 +26,10 @@
   text-align: center;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
 .btn-info {
   color: #fff;
   background-color: #5bc0de;
