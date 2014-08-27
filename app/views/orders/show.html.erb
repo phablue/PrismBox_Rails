@@ -2,26 +2,26 @@
   <% if notice %>
       <p class = "alert alert-success"><%= notice %></p> 
   <% end %>
-  <h1> Order Detail</h1>
-  <div class="form-group"><br>
+  <h1 class="info-title">Order Detail</h1>
+  <div class="info-detail">
     <label>FULL NAME</label>
-    <div class="info"><%= @order.full_name %></div><br>
+    <div class="info"><%= @order.full_name %></div>
     <label>EMAIL</label>
-    <div class="info"><%= @order.email %></div><br>
+    <div class="info"><%= @order.email %></div>
     <label>RENT LAPTOP SERIAL NUMBER</label>
-    <div class="info"><%= @order.laptop_serial_number %></div><br>
+    <div class="info"><%= @order.laptop_serial_number %></div>
     <% if current_user.admin %>
       <label>ORDER STATEMENT</label>
-      <div class="info"><%= @order.order_status %></div><br>
+      <div class="info"><%= @order.order_status %></div>
     <% end %>
   </div><br>
-  <% if current_user.admin %>
-    <div class="buttons">
+  <div class="buttons">
+    <% if current_user.admin %>
       <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %>
-      <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
-    </div><br>
-    <%= link_to "Back to List", orders_url , class: "btn btn-primary"%>
-  <% else %>
-    <%= link_to "Home", "/" , class: "btn btn-primary"%>
-  <% end %>
+      <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td><br><br>
+      <%= link_to "Back to List", orders_url , class: "btn btn-primary"%>
+      <% else %>
+        <%= link_to "Home", "/" , class: "btn btn-primary"%>
+    <% end %>
+  </div><br>
 </div>

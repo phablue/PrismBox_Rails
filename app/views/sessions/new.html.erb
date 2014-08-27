@@ -1,33 +1,23 @@
 <% if notice %>
-    <p class = "alert alert-danger"><%= notice %></p> 
+  <p class = "alert alert-danger"><%= notice %></p>
 <% end %>
-<div class='login_container'>
-  <div class="form-signin">
-    <% if flash[:alert] %>
-      <p class="alert alert-danger"><%= flash[:alert] %></p>
-    <% end %>
-    <div class="form-signin-container">
-      <%= form_tag do %>
-        <h2 class="form-signin-heading">Please sign in</h2><br>
-        <div class="form-group">
-          <%= label_tag :email, 'What is your email?', class: "col-sm-4 control-label"%>
-          <div class="col-sm-7">
-            <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "form-control" %>
-          </div>
-        </div><br><br>
-        <div class="form-group">
-          <%= label_tag :password, 'What is your password?', class: "col-sm-4 control-label"%>
-          <div class="col-sm-7">
-            <%= password_field_tag :password, params[:password], placeholder: "password", class: "form-control" %><br>
-          </div>
-        </div><br>
-        <h5>New to PrismBox? <%= link_to 'Click here', new_user_path %> </h5>
-        <div class="form-group-action">
-          <div class="form-actions">
-            <%= submit_tag "Login", class: "btn btn-lg btn-primary btn-block" %>
-          </div>
+<div class="form-signin">
+  <% if flash[:alert] %>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+  <div class="form-signin-container">
+    <%= form_tag do %>
+      <h2 class="signin-title">Please sign in</h2>
+      <%= label_tag :email, 'What is your email?', class: "signin-label"%>
+      <%= text_field_tag :email, params[:email], placeholder: "EMAIL", class: "signin-input" %>
+      <%= label_tag :password, 'What is your password?', class: "signin-label"%>
+      <%= password_field_tag :password, params[:password], placeholder: "password", class: "signin-input" %>
+      <h5>New to PrismBox? <%= link_to 'Click here', new_user_path %> </h5>
+      <div class="form-group-action">
+        <div class="form-actions">
+          <%= submit_tag "Login", class: "btn btn-lg btn-primary btn-block" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

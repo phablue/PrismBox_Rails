@@ -1,0 +1,92 @@
+.container {
+  left: 0px;
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  min-width: 50%;
+  height: 90%;
+}
+
+.contents {
+  background-image: url("handmadepaper.png");
+  padding: 20px;
+  margin-top: 10px;
+  height: 90%;
+}
+
+.buttons {
+  padding: 15px;
+}
+
+.btn {
+  border: 1.5px inset;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  padding: 6px;
+  text-align: center;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.btn-success {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+  font-size: 14px;
+}
+
+.table-striped tbody tr {
+  background-image: url("paper_3.png"); 
+}
+
+.info {
+  color: #033649;
+  display: inline-block;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 15px;
+  width: 70%;
+}
+
+.info-input {
+  color: #033649;
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 5px;
+  padding-left: 10px;
+  width: 30%;
+  margin-right: 37%;
+}
+
+.sm {
+  width: 13.6%;
+  margin-right: 10px;
+}
+
+.info-save {
+  position: relative;
+  left: 49%;
+}
+
+.radio-inline {
+  display: inline;
+  font-size: 15px;
+  padding: 2.5px;
+  padding-right: 20px;
+}

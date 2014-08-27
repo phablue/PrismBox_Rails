@@ -2,8 +2,8 @@
   <% if notice %>
       <p class = "alert alert-success"><%= notice %></p>
   <% end %>
-  <h1>LAPTOP (# <%= @laptop.serial_number%>)</h1>
-  <div class="detail laptop">
+  <h1 class="info-title">LAPTOP / <%= @laptop.serial_number%></h1>
+  <div class="info-detail">
     <label>SERIAL NUMBER</label>
     <div class="info"><%= @laptop.serial_number %></div>
     <label>MODEL</label>
@@ -19,7 +19,7 @@
     <label>PURCHASED DATE</label>
     <div class="info"><%= @laptop.purchased_date %></div><br>
     <label>CURRENT STATE</label>
-    <div class="info"><%= @laptop.state %></div><br>
+    <div class="info"><%= @laptop.state %></div>
   </div><br>
   <div class="buttons">
     <% if current_user.admin %>

@@ -10,36 +10,22 @@
           <li><%= msg %></li> <% end %>
       </ul>
     </div> 
-  <% end %>  
-  <div class="form-group">
-    <label class="col-sm-2 control-label">SERIAL NUMBER</label>
-    <div class="col-sm-5">
-      <%= f.text_field :serial_number, class: "form-control", placeholder: "SERIAL NUMBER" %>
-    </div><br>
-    <label class="col-sm-2 control-label">MODEL</label>
-    <div class="col-sm-5">
-      <%= f.text_field :model_, class: "form-control", placeholder:"MODEL" %>
-    </div><br>
-    <label class="col-sm-2 control-label">HDD SIZE</label>
-    <div class="col-sm-5">
-      <%= f.text_field :hdd_size, class: "form-control", placeholder:"HDD SIZE" %>
-    </div><br>
-    <label class="col-sm-2 control-label">CPU SPEED</label>
-    <div class="col-sm-5">
-      <%= f.text_field :cpu_speed, class: "form-control", placeholder:"CPU SPEED" %>
-    </div><br>
-    <label class="col-sm-2 control-label">RAM</label>
-    <div class="col-sm-5">
-      <%= f.text_field :ram, class: "form-control", placeholder:"RAM" %>
-    </div><br>
-    <label class="col-sm-2 control-label">SCREEN SIZE</label>
-    <div class="col-sm-5">
-      <%= f.text_field :screen_size, class: "form-control", placeholder:"RAM" %>
-    </div><br>
-    <label class="col-sm-2 control-label">PURCHASED DATE</label>
-    <div class="col-sm-5">
-      <%= f.date_field :purchased_date, class: "form-control" %>
-    </div><br>
-  </div>
-  <%= f.submit "Save Laptop", class: "btn btn-success" %>
+  <% end %>
+  <div class="info-detail">
+    <label>SERIAL NUMBER</label>
+    <%= f.text_field :serial_number, class: "info-input", placeholder: "SERIAL NUMBER" %>
+    <label>MODEL</label>
+    <%= f.text_field :model_, class: "info-input", placeholder:"MODEL" %>
+    <label>HDD SIZE</label>
+    <%= f.text_field :hdd_size, class: "info-input", placeholder:"HDD SIZE" %>
+    <label>CPU SPEED</label>
+    <%= f.text_field :cpu_speed, class: "info-input", placeholder:"CPU SPEED" %>
+    <label>RAM</label>
+    <%= f.text_field :ram, class: "info-input", placeholder:"RAM" %>
+    <label>SCREEN SIZE</label>
+    <%= f.text_field :screen_size, class: "info-input", placeholder:"RAM" %>
+    <label>PURCHASED DATE</label>
+    <%= f.date_field :purchased_date, class: "info-input" %>
+  </div><br>
+  <%= f.submit "Save Laptop", class: "btn btn-success info-save" %><br><br>
 <% end %>

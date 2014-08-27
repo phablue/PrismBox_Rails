@@ -1,45 +1,29 @@
-<div class="new_account">
-  <%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-      <div class = "alert alert-danger">
-        <h2>
-          <%= pluralize(@user.errors.count, "error") %> 
-          prohibited this laptop from being saved:
-        </h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li> <% end %>
-        </ul>
-      </div> 
-    <% end %>
-    <div class="form-group">
-      <label class="col-sm-3 control-label">FULL NAME</label>
-      <div class="col-sm-1">
-        <%= f.text_field :first_name, class: "form-control", placeholder: "FIRST NAME" %>
-      </div>
-      <div class="col-sm-1">
-        <%= f.text_field :last_name, class: "form-control", placeholder: "LAST NAME" %>
-      </div><br>
-      <label class="col-sm-3 control-label">EMAIL</label>
-      <div class="col-sm-4">
-        <%= f.email_field :email, class: "form-control", placeholder:"EMAIL" %>
-      </div><br>
-      <label class="col-sm-3 control-label">PASSWORD</label>
-      <div class="col-sm-4">
-        <%= f.password_field :password, class: "form-control", placeholder:"PASSWORD" %>
-      </div><br>
-      <label class="col-sm-3 control-label">PASSWORD CONFIRMATION</label>
-      <div class="col-sm-4">
-        <%= f.password_field :password_confirmation, class: "form-control", placeholder:"PASSWORD" %>
-      </div><br>
-      <label class="col-sm-3 control-label">DEPARTMENT</label>
-      <div class="col-sm-4">
-        <p>
-          <b>Software </b> <%= f.radio_button :department, 'Software', checked: true %>
-          &nbsp&nbsp&nbsp
-          <b>UX </b><%= f.radio_button :department, 'UX' %></p>
-      </div><br>
-    </div>
-    <%= f.submit "Make Account", class: "btn btn-success" %>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class = "alert alert-danger">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> 
+        prohibited this laptop from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li> <% end %>
+      </ul>
+    </div> 
   <% end %>
-</div>
+  <div class="info-detail">
+    <label>FULL NAME</label>
+    <%= f.text_field :first_name, class: "info-input sm", placeholder: "FIRST NAME" %>
+     <%= f.text_field :last_name, class: "info-input sm", placeholder: "LAST NAME" %><br>
+    <label>EMAIL</label>
+    <%= f.email_field :email, class: "info-input", placeholder:"EMAIL" %>
+    <label>PASSWORD</label>
+    <%= f.password_field :password, class: "info-input", placeholder:"PASSWORD" %>
+    <label>PASSWORD CONFIRMATION</label>
+    <%= f.password_field :password_confirmation, class: "info-input", placeholder:"PASSWORD" %>
+    <label>DEPARTMENT</label>
+    <label class="radio-inline">Software<%= f.radio_button :department, 'Software', checked: true %></label>
+    <label class="radio-inline">UX </b><%= f.radio_button :department, 'UX' %></label>
+  </div>
+  <%= f.submit "Make Account", class: "btn btn-success info-save" %><br><br>
+<% end %>

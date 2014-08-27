@@ -1,45 +1,35 @@
-<div class="order_form">
-  <%= form_for @order do |f| %>
-    <% if @order.errors.any? %>
-      <div class = "alert alert-danger">
-        <h2>
-          <%= pluralize(@order.errors.count, "error") %>
-          prohibited this order from being saved:
-        </h2>
-        <ul>
-          <% @order.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li> <% end %>
-        </ul>
-      </div> 
-    <% end %>
-    <div class="form-group">
-      <label class="col-sm-3 control-label">FULL NAME</label>
-      <div class="col-sm-5">
-        <%= f.text_field :full_name, value: full_name_of(consumer_user(@order)), class: "form-control", readonly: true %>
-      </div><br>
-      <label class="col-sm-3 control-label">EMAIL</label>
-      <div class="col-sm-5">
-        <%= f.text_field :email, value: consumer_user(@order).email, class: "form-control", readonly: true %>
-      </div><br>
-      <label class="col-sm-3 control-label">RENT LAPTOP SERIAL NUMBER</label>
-      <div class="col-sm-5">
-        <%= f.text_field :laptop_serial_number, value: session[:laptop_id].serial_number, class: "form-control", readonly: true %>
-      </div><br>
-      <% if current_user.admin %>
-        <label class="col-sm-3 control-label">ORDER STATEMENT</label>
-        <div class="col-sm-5">
-          <label class="radio-inline">
-            <%= f.radio_button :order_status, "CONFIRMED"%> Confirm
-          </label>
-          <label class="radio-inline">
-            <%= f.radio_button :order_status, "PROCESSING"%> Processing
-          </label>
-          <label class="radio-inline">
-            <%= f.radio_button :order_status, "RETURNED"%> Return
-          </label>
-        </div><br>
-      <% end %>
-    </div>
-    <%= f.submit "Place your order", class: "btn btn-success" %>
+<%= form_for @order do |f| %>
+  <% if @order.errors.any? %>
+    <div class = "alert alert-danger">
+      <h2>
+        <%= pluralize(@order.errors.count, "error") %>
+        prohibited this order from being saved:
+      </h2>
+      <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li> <% end %>
+      </ul>
+    </div> 
   <% end %>
-</div>
+  <div class="info-detail">
+    <label>FULL NAME</label>
+    <%= f.text_field :full_name, value: full_name_of(consumer_user(@order)), class: "info-input", readonly: true %>
+    <label>EMAIL</label>
+    <%= f.text_field :email, value: consumer_user(@order).email, class: "info-input", readonly: true %>
+    <label>LAPTOP SERIAL NUMBER</label>
+    <%= f.text_field :laptop_serial_number, value: session[:laptop_id].serial_number, class: "info-input", readonly: true %>
+    <% if current_user.admin %>
+      <label>ORDER STATEMENT</label>
+      <label class="radio-inline">
+        <%= f.radio_button :order_status, "CONFIRMED"%> Confirm
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :order_status, "PROCESSING"%> Processing
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :order_status, "RETURNED"%> Return
+      </label>
+    <% end %>
+  </div><br>
+  <%= f.submit "Place your order", class: "btn btn-success info-save" %><br><br>
+<% end %>

@@ -1,29 +1,27 @@
-<div class="container">
+<div class="contents">
   <% if notice %>
       <p class = "alert alert-success"><%= notice %></p> 
   <% end %>
-  <div class="page-header">
-    <h1><span><%= @user.first_name.titlecase %> <%= @user.last_name.titlecase %></span> PROFILE</h1>
-  </div>
-  <div class="user_profile"><br>
-    <label class="col-sm-3">FULL NAME</label>
-    <div class="col-sm-5"><%= @user.first_name.titlecase %> <%= @user.last_name.titlecase %></div><br>
-    <label class="col-sm-3">EMAIL</label>
-    <div class="col-sm-5"><%= @user.email %></div><br>
-    <label class="col-sm-3">DEPARTMENT</label>
-    <div class="col-sm-5"><%= @user.department %></div><br>
-    <label class="col-sm-3">CURRENT BORROWED LAPTOP</label>
-    <div class="col-sm-5"><%= @user.current_borrowed_laptop %></div><br>
-    <label class="col-sm-3">CURRENT BORROWED DATE</label>
-    <div class="col-sm-5"><%= @user.current_borrowed_date %></div><br>
+  <h1 class="info-title"><span><%= @user.first_name.titlecase %> <%= @user.last_name.titlecase %></span> PROFILE</h1>
+  <div class="info-detail">
+    <label>FULL NAME</label>
+    <div class="info"><%= @user.first_name.titlecase %> <%= @user.last_name.titlecase %></div>
+    <label>EMAIL</label>
+    <div class="info"><%= @user.email %></div>
+    <label>DEPARTMENT</label>
+    <div class="info"><%= @user.department %></div>
+    <label>CURRENT RENTED LAPTOP</label>
+    <div class="info"><%= @user.current_borrowed_laptop %></div>
+    <label>CURRENT RENTED DATE</label>
+    <div class="info"><%= @user.current_borrowed_date %></div>
   </div><br>
   <div class="buttons">
     <%= link_to "Edit", edit_user_path(@user), class: "btn btn-info" %> 
-    <%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+    <%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td><br><br>
+    <% if current_user.admin %>
+      <%= link_to "Back to Users List", users_url , class: "btn btn-primary"%>
+    <% else %>
+      <%= link_to "Home", "/" , class: "btn btn-primary"%>
+    <% end %>
   </div><br>
-  <% if current_user.admin %>
-    <%= link_to "Back to Users List", users_url , class: "btn btn-primary"%>
-  <% else %>
-    <%= link_to "Home", "/" , class: "btn btn-primary"%>
-  <% end %>
 </div>
