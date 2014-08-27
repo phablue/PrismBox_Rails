@@ -16,7 +16,7 @@
   letter-spacing: 1px;
   padding: 5px;
   position: absolute;
-  top: 15%;
+  top: 120px;
 }
 
 .welcome {
@@ -36,5 +36,5 @@
   padding: 12px;
   position: absolute;
   text-align: center;
-  top: 40%;
+  top: 280px;
 }
