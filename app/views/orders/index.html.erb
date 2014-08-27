@@ -1,39 +1,37 @@
-<div class="container">
-  <div class="starter-template">
-    <h1>Order LIST</h1>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>FULL NAME</th>
-          <th>EMAIL</th>
-          <th>LAPTOP SERIAL NUMBER</th>
-          <th>ORDER CREATE DATE</th>
-          <th>ORDER STATEMENT</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @orders.each do |order| %>
-        <tr>
-          <td></td>
-          <td><%= order.full_name %></td>
-          <td><%= order.email %></td>
-          <td><%= order.laptop_serial_number %></td>
-          <td><%= order.created_at.to_date %></td>
-          <td><%= order.order_status %></td>
-          <td><%= link_to "SHOW", order_path(order) %></td>
-          <td><%= link_to "EDIT", edit_order_path(order) %></td>
-          <td><%= link_to "DELETE", order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table><br>
-    <% if params[:state] == "processing" %>
-      <%= link_to "Confirm All", confirm_all_url, data: {confirm: "Do you want to confirm all new orders?"}, class: "btn btn-info" %><br><br>
-    <% end %>
-    <%= link_to "Home", admin_url , class: "btn btn-primary"%>
-  </div>
+<div class="contents">
+  <h1>Order LIST</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>FULL NAME</th>
+        <th>EMAIL</th>
+        <th>LAPTOP SERIAL NUMBER</th>
+        <th>ORDER CREATE DATE</th>
+        <th>ORDER STATEMENT</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td></td>
+        <td><%= order.full_name %></td>
+        <td><%= order.email %></td>
+        <td><%= order.laptop_serial_number %></td>
+        <td><%= order.created_at.to_date %></td>
+        <td><%= order.order_status %></td>
+        <td><%= link_to "SHOW", order_path(order) %></td>
+        <td><%= link_to "EDIT", edit_order_path(order) %></td>
+        <td><%= link_to "DELETE", order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table><br>
+  <% if params[:state] == "processing" %>
+    <%= link_to "Confirm All", confirm_all_url, data: {confirm: "Do you want to confirm all new orders?"}, class: "btn btn-info" %><br><br>
+  <% end %>
+  <%= link_to "Home", admin_url , class: "btn btn-primary"%>
 </div>

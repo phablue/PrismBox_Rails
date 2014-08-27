@@ -1,27 +1,25 @@
 <div class="contents">
   <% if notice %>
-      <p class = "alert alert-success"><%= notice %></p> 
+      <p class = "alert alert-success"><%= notice %></p>
   <% end %>
-  <div class="page-header">
-    <h1>LAPTOP (# <%= @laptop.serial_number%>)</h1>
-  </div>
-  <div class="detail-laptop">
-    <br><label class="col-sm-2">SERIAL NUMBER</label>
-    <div class="col-sm-5"><%= @laptop.serial_number %></div><br>
-    <label class="col-sm-2">MODEL</label>
-    <div class="col-sm-5"><%= @laptop.model_ %></div><br>
-    <label class="col-sm-2">HDD SIZE</label>
-    <div class="col-sm-5"><%= @laptop.hdd_size %></div><br>
-    <label class="col-sm-2">CPU SPEED</label>
-    <div class="col-sm-5"><%= @laptop.cpu_speed %></div><br>
-    <label class="col-sm-2">RAM</label>
-    <div class="col-sm-5"><%= @laptop.ram %></div><br>
-    <label class="col-sm-2">SCREEN SIZE</label>
-    <div class="col-sm-5"><%= @laptop.screen_size %></div><br>
-    <label class="col-sm-2">PURCHASED DATE</label>
-    <div class="col-sm-5"><%= @laptop.purchased_date %></div><br>
-    <label class="col-sm-2">CURRENT STATE</label>
-    <div class="col-sm-5"><%= @laptop.state %></div><br>
+  <h1>LAPTOP (# <%= @laptop.serial_number%>)</h1>
+  <div class="detail laptop">
+    <label>SERIAL NUMBER</label>
+    <div class="info"><%= @laptop.serial_number %></div>
+    <label>MODEL</label>
+    <div class="info"><%= @laptop.model_ %></div>
+    <label>HDD SIZE</label>
+    <div class="info"><%= @laptop.hdd_size %></div>
+    <label>CPU SPEED</label>
+    <div class="info"><%= @laptop.cpu_speed %></div><br>
+    <label>RAM</label>
+    <div class="info"><%= @laptop.ram %></div><br>
+    <label>SCREEN SIZE</label>
+    <div class="info"><%= @laptop.screen_size %></div><br>
+    <label>PURCHASED DATE</label>
+    <div class="info"><%= @laptop.purchased_date %></div><br>
+    <label>CURRENT STATE</label>
+    <div class="info"><%= @laptop.state %></div><br>
   </div><br>
   <div class="buttons">
     <% if current_user.admin %>
@@ -29,6 +27,6 @@
       <%= link_to "Delete", @laptop, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td><br><br>
     <% end %>
     <%= link_to "Proceed to borrow", new_order_path, class: "btn btn-info" %>
-  </div><br>
-  <%= link_to "Back to List", laptops_url , class: "btn btn-primary"%>
+    <%= link_to "Back to List", laptops_url , class: "btn btn-primary"%>
+  </div>
 </div>

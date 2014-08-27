@@ -1,7 +1,5 @@
-<div class="container">
-  <div class="page-header">
-    <h1>Change Account Settings</h1>
-  </div>
+<div class="contents">
+  <h1>Change Account Settings</h1>
   <%= render "form" %>
   <% if current_user.admin %>
     <%= link_to "Back to Users List", users_url , class: "btn btn-primary"%>

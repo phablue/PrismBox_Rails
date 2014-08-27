@@ -18,6 +18,14 @@ input {
   padding: 3px;
 }
 
+label {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 15px;
+  width: 20%;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -48,6 +56,9 @@ th {
   width: 100%;
   min-width: 50%;
   height: 90%;
+}
+.buttons {
+  padding: 15px;
 }
 
 .btn {
@@ -84,4 +95,11 @@ th {
 
 .table-striped tbody tr {
   background-image: url("paper_3.png"); 
+}
+
+.info {
+  display: inline-block;
+  font-size: 18px;
+  padding: 15px;
+  width: 70%;
 }

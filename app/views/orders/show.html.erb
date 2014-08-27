@@ -1,31 +1,27 @@
-<div class = "order_show">
-  <div class="container">
-    <% if notice %>
-        <p class = "alert alert-success"><%= notice %></p> 
-    <% end %>
-    <div class="page-header">
-      <h1> Order Detail</h1>
-    </div>
-    <div class="form-group"><br>
-      <label class="col-sm-3">FULL NAME</label>
-      <div class="col-sm-5"><%= @order.full_name %></div><br>
-      <label class="col-sm-3">EMAIL</label>
-      <div class="col-sm-5"><%= @order.email %></div><br>
-      <label class="col-sm-3">RENT LAPTOP SERIAL NUMBER</label>
-      <div class="col-sm-5"><%= @order.laptop_serial_number %></div><br>
-      <% if current_user.admin %>
-        <label class="col-sm-3">ORDER STATEMENT</label>
-        <div class="col-sm-5"><%= @order.order_status %></div><br>
-      <% end %>
-    </div><br>
+<div class="contents">
+  <% if notice %>
+      <p class = "alert alert-success"><%= notice %></p> 
+  <% end %>
+  <h1> Order Detail</h1>
+  <div class="form-group"><br>
+    <label>FULL NAME</label>
+    <div class="info"><%= @order.full_name %></div><br>
+    <label>EMAIL</label>
+    <div class="info"><%= @order.email %></div><br>
+    <label>RENT LAPTOP SERIAL NUMBER</label>
+    <div class="info"><%= @order.laptop_serial_number %></div><br>
     <% if current_user.admin %>
-      <div class="buttons">
-        <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %>
-        <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
-      </div><br>
-      <%= link_to "Back to List", orders_url , class: "btn btn-primary"%>
-    <% else %>
-      <%= link_to "Home", "/" , class: "btn btn-primary"%>
+      <label>ORDER STATEMENT</label>
+      <div class="info"><%= @order.order_status %></div><br>
     <% end %>
-  </div>
+  </div><br>
+  <% if current_user.admin %>
+    <div class="buttons">
+      <%= link_to "Edit", edit_order_path(@order), class: "btn btn-info" %>
+      <%= link_to "Delete", @order, method: :delete, data: {confirm: "Are you sure? You can’t cancel this action."}, class: "btn btn-danger" %></td>
+    </div><br>
+    <%= link_to "Back to List", orders_url , class: "btn btn-primary"%>
+  <% else %>
+    <%= link_to "Home", "/" , class: "btn btn-primary"%>
+  <% end %>
 </div>
