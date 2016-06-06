@@ -1,9 +1,14 @@
 Prismbox::Application.routes.draw do
+  get "numbeers/fibonacci"
   resources :laptops
   resources :users
 
   controller :users do
     get "order_history", to: :order_history
+  end
+
+  controller :numbeers do
+    get "fibonacci", to: :fibonacci
   end
 
   resources :orders
