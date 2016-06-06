@@ -1,4 +1,3 @@
 == PrismBox
 
-This app is tracking lending laptop status.
-
+Hardware Inventory Tracking
